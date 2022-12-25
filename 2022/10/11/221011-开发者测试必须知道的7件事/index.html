@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="向着财富与自由前进吧">
+    <meta name="author" content="Ray">
+    
+    <title>
+        
+            【转】开发者测试必须知道的7件事 |
+        
+        Ray的日记本
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://arts.ray0728.cn/images/2021/08/01/logo.png","favicon":"https://arts.ray0728.cn/images/2021/08/01/logo.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/mybg.svg","description":"格物 致知 诚意 正心"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Ray的日记本
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/"
+                            >
+                                CODE
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/">CODE</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">【转】开发者测试必须知道的7件事</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Ray</span>
+                        
+                            <span class="author-label">CTO</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-11 21:00:00</span>
+        <span class="mobile">2022-10-11 21:00</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%95%8F%E6%8D%B7%E9%A1%B9%E7%9B%AE/">敏捷项目</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85%E6%B5%8B%E8%AF%95/">开发者测试</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%95%8F%E6%8D%B7/">敏捷</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>本文转至<a class="link" target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/423958601">华为云开发者联盟<i class="fas fa-external-link-alt"></i></a>，文中的<em><strong>我司</strong></em>特指<em><strong>华为技术有限公司</strong></em>。</p>
+<h2 id="一、“开发者测试”-就是“开发者来测试”"><a href="#一、“开发者测试”-就是“开发者来测试”" class="headerlink" title="一、“开发者测试” 就是“开发者来测试”"></a>一、“开发者测试” 就是“开发者来测试”</h2><p>开发者测试是现代软件工程中非常重要的一环，敏捷开发、主干开发这些先进的项目管理方法和流程都基于完善的开发者测试。当每个月甚至每周都要交付一个版本时，不可能投入大量的测试工程师来进行大规模的系统级别测试，这时候就需要把整个测试金字塔中的绝大部分测试通过自动化来完成。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/11/v2-5d27810e17c4aedb34d5d71e556a80e5_720w.png" alt="img"></p>
+<span id="more"></span>
+
+<p>我们今天谈开发者测试，什么是“开发者测试”？ 我司有清晰的开发与测试之分。写代码归开发攻城狮，测试归测试攻城狮，大部分情况下双方处于“红蓝对峙”状态。这与我10多年前的研发团队状况非常相似。而现在的软件工程，专职的“测试攻城狮”非常少，很多公司开发测试比例大于10:1，甚至一些部门没有测试攻城狮一说。 而测试攻城狮的角色不再是手动跑测试用例的“苦力”，而是管理产品的测试系统，对产品测试进行规划、分析；归纳功能测试的思维导图、设计测试用例及带领研发团队进行测试工作，更像一位“测试专家/测试教练”。</p>
+<p>举个简单的例子，我之前做的产品是在线视频会议协作产品，我们每天的线上例会就是用自己做的产品，而且会使用自己开发的新功能测试站点来开“站会”。除了花少量的时间做dialy update，然后就是测试专家带领团队（包括PO、Architect、SM、Dev）按照计划来进行集中（半个小时）的测试。也就是说不止通常说的UT、API、IT等测试，包括系统级别的测试开发也会去做，所以说“开发者测试”就是“开发者来测试”，而我们传统的众多测试工程师面临三种出路：成长、转型、淘汰。而“测试专家”在项目中的话语权也很高，之前的公司使用主干开发，有个“一进一出”的评审，团队的这种类型的“测试专家”有一票否决权。甚至在公司有Principle Engineer级别的测试专家（相当于我司20-21级的技术专家）。</p>
+<ul>
+<li>一进：对于一个功能是否能够进入release branch，在release branch打开feature toggle进行发布级别的测试。</li>
+<li>一出：在engineer release时，该功能质量合格，允许feature toggle进入产线。</li>
+</ul>
+<h2 id="二、没有什么测试不可以“自动化测试”"><a href="#二、没有什么测试不可以“自动化测试”" class="headerlink" title="二、没有什么测试不可以“自动化测试”"></a>二、没有什么测试不可以“自动化测试”</h2><p>回到测试金字塔，从测试的”开发成本”、“执行成本”、“测试覆盖率”、“问题定位”四个维度来看，基于代码级别的白盒测试是及其重要的。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/11/v2-d6c3720208da64136e7f1ed0ed9dc0f0_720w.png" alt="img"></p>
+<ul>
+<li>开发成本： 实现测试用例的成本。</li>
+<li>执行成本：运行一次测试用例的成本。</li>
+<li>测试覆盖率：我们通常所说的line coverage和branch coverage</li>
+<li>问题定位：测试出现问题，定位问题的效率</li>
+</ul>
+<p>通过测试金字塔及其四个测试维度评估，我们可以得出：</p>
+<ul>
+<li>尽可能地多做Low Level Test ：因为他们的执行速度相较于上层的几个测试类型来说快很多且相对稳定，可以一天多次执行。一般来说，LLT灰做到持续集成构建任务中去，甚至在MR中执行，保障进入代码仓库的代码质量。</li>
+<li>在自动化保障的情况下，执行一定规模的IT、ST、UI Test：因为他们的执行速度较慢，环境依赖较多，测试相对不稳定。通常在一天执行一两次（通常在夜里），阶段性的检查代码质量，反馈代码问题。</li>
+<li>尽可能地少做大规模的手动测试：因为他们的执行速度相较LLT且不够稳定，人力成本较高，也无法做到一天多次执行，每次执行都要等很久才能获得反馈结果。但是，他们更贴近真实用户场景，所以要确保一定周期内或者关键节点时间进行这种测试以确保软件质量。</li>
+</ul>
+<p>现在很多公司已经迭代发布的周期越来越短，甚至做到了2周。手动测试显然无法适应这种开发模式，而把手动测试的测试用例通过各种技术方案自动化是唯一途径。代码层面，从底层业务代码到UI代码，只要架构设计合理，都是可以做UT。最顶层的UI交互测试，测试用例也是可以自动化运行（大部分UI框架都可以通过accessibility的接口进行UI自动化测试），我看到华为手机硬件部门都可以自动化测试“摔手机”这种极端测试，软件有啥做不到？至少有些业界技术大牛公司的某些产品，从代码提交Merge Request，到产品上产线是可以以天来计算的。这种产品的测试是不会也不可能通过手工测试来完成的。</p>
+<h2 id="三、开发者测试“利在当下”，“赢得未来”"><a href="#三、开发者测试“利在当下”，“赢得未来”" class="headerlink" title="三、开发者测试“利在当下”，“赢得未来”"></a>三、开发者测试“利在当下”，“赢得未来”</h2><p>很多人都认为底层的开发者测试，花了大量的时间，写了大量的代码，然后来保证功能的正确性，但是每次代码功能或者结构的的变更都要修改测试代码。而我手动调试和验证效率更高，甚至一些开发者测试更多的是为了指标。实际上通过UT，API测试来调试代码与自己手动运行调试区别不大，但是通过开发者测试对代码进行调试，从而保证当前项目迭代的质量；但是其更重要的作用不是这个。通常在我们bug分类中有这样一些名词 : Build Regression Bug， Release Regression Bug。</p>
+<ul>
+<li>Build Regression Bug ： 开发中同样的功能在新版本出现一个bug，但是在之前的版本没有这个问题，我们叫做Build Regression Bug.</li>
+<li>Release Regression Bug : 产线上同样的功能在新版本出现一个bug，但是在之前的版本没有这个问题，我们叫做Release Regression Bug.</li>
+</ul>
+<p>我们每次提交到产品中的代码，没有人可以保证其100%不会出现问题，在敏捷开发的这种快速迭代下，不太可能进行全功能的手动测试，所以开发者测试，特别是底层的UT、API测试、集成测试，能够很容易的识别发现这类问题，也就是开发者测试一个重要的功能是为了防御后面改动的代码对现在代码的影响。所以说开发者测试是”利在当下“，”赢得未来“。</p>
+<h2 id="四、灰度TDD，不强求必须先写测试代码"><a href="#四、灰度TDD，不强求必须先写测试代码" class="headerlink" title="四、灰度TDD，不强求必须先写测试代码"></a>四、灰度TDD，不强求必须先写测试代码</h2><p>对于TDD，大家的认知是先写测试代码，再在写实现代码，这个说法对也不对。概念上没错，但是如果严格这样做，效率未必最高，这也是TDD很难推广的原因之一。我们把编码实现分成3个部分：实现代码、测试代码、调试代码。按照TDD的概念时先写测试代码、然后编码，最后调试。我们通常在代码实现时，一开始不大可能考虑的非常清晰，把接口定义的完全准确，如果严格按照测试、编码、调试来做，测试代码要随着编码频繁修改。 当然这本身不是什么大问题，在实际执行过程中，很多人习惯先搭好代码框架、测试框架，然后再编码，测试。等测试完成后再进行调试。所以从华为灰度管理的角度上来说，只要单元测试在调试之前，都可以称作TDD开发模式。BTW，当然现在开始流行BDD，这里想说的是如果连我说的TDD都做不到的团队，就不要考虑BDD了。</p>
+<p><em>（Behavior-Driven Development：BDD将TDD的一般技术和原理与领域驱动设计(DDD)的想法相结合。 BDD是一个设计活动，您可以根据预期行为逐步构建功能块。 BDD的重点是软件开发过程中使用的语言和交互。 行为驱动的开发人员使用他们的母语与领域驱动设计的语言相结合来描述他们的代码的目的和好处。 使用BDD的团队应该能够以用户故事的形式提供大量的“功能文档”，并增加可执行场景或示例。 BDD通常有助于领域专家理解实现而不是暴露代码级别测试。它通常以GWT格式定义：GIVEN WHEN＆THEN。）</em></p>
+<h2 id="五、UT覆盖率100-真的很不好"><a href="#五、UT覆盖率100-真的很不好" class="headerlink" title="五、UT覆盖率100%真的很不好"></a>五、UT覆盖率100%真的很不好</h2><p>于单元测试，我们都会关注一个指标“覆盖率”。不管模块、函数、行、分支覆盖率，必须要有一定比例的覆盖率。但是每一项你都做到了100%，那么会给你打“差评”。不是说你做到不好（这里不谈是不是用了正确的方式），而是成本和性价比问题。以最难达到的分支覆盖率（branch coverage）为例，如果要做到100%的覆盖率，有些内存分配或者容错保护的分支都必须测试到，那么你的测试用例考虑要翻倍，但是并没有带来的相应价值。甚至一些代码条件分支在程序运行的生命周期内都没有被执行过。</p>
+<ul>
+<li>模块覆盖率：业务模块代码通过UT，架构模块代码通过IT；就从UT的覆盖率的角度上去看，不需要去测试架构代码。</li>
+<li>函数覆盖率：不要专门为一些无任何逻辑的代码去写UT。比如我们有些函数就是get/set一个属性，内部实现就用一个变量来赋值保存。这种函数写UT就是为了覆盖率而写，没有任何真正的意义。</li>
+<li>行覆盖率：通常来看平局80%上下的行覆盖率是一个合理的指标，有些可以为0%，而有些需要100%，如果全部代码都超过90%，其成本较高，效率较低，不建议这样做。</li>
+<li>分支覆盖率：越复杂的业务逻辑，越要写更多的测试用例来覆盖，而一些内存分配出错逻辑判断可以不需要测试。</li>
+</ul>
+<h2 id="六、用测试来驱动架构和代码质量"><a href="#六、用测试来驱动架构和代码质量" class="headerlink" title="六、用测试来驱动架构和代码质量"></a>六、用测试来驱动架构和代码质量</h2><p>这里谈测试驱动架构和代码质量，主要说的是让代码具备完善的可测试性，什么是代码的可测试性？简单的说就是类与类之间，模块与模块关系解耦，类与类，模块与模块通过接口编程。依赖的接口通过被动注入式传入，而不是主动获取式。对于程序正常运行时，所传入的接口参数是真实的业务对象，而做测试时，可以传入fake的模拟实现。当然不是所有的依赖模块都这样做，一些与业务无关的Utility Library，或者一些特定的数据对象实现，可以直接调用。</p>
+<p>这里我们讲到了fake与mock，关于Test Doubles，基本上的概念如下，具体每种代表什么意义，大家可以自行上网搜索</p>
+<ul>
+<li>虚拟对象（dummy）</li>
+<li>存根（stub）</li>
+<li>间谍（spy）</li>
+<li>模拟对象（mock）</li>
+<li>伪对象（fake）</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/11/v2-9008d7b476fef1455e8cf837a8603aba_720w.png" alt="img"></p>
+<p>当前我司大家在做开发者测试时，基本上都在用Mock Object（实际上在用的过程中，很多是在用入参返回值控制的Stub）。还记得前些年DHH（David Heinemeier Hansson）的那篇文章《TDD is dead, Long live testing》，其中一点对于TDD中过度的使用Mock/Stub导致架构上诸多问题。而TDD创始人Kent Beck则说他从来不用Mock。 虽然通过Mock的方式也是可以测试代码，但是实际上不得不用Mock基本上意味着我们的代码关联性较强，模块显示依赖较重，模块移植性较差，特别是C语言编程这种问题特别多。以至于现在很多模块根本无法开展单元测试，更多的是在做集成测试。</p>
+<p>为什么会出现这种情况？ 我们的高级别的架构师更多的在考虑系统级别的架构设计，把系统模块，各个应用之间的关系梳理的非常清晰，通常情况下，高级别的架构师可以把系统模块或应用之间的关系设计的较为合理。然而到了具体的应用业务内部的设计与实现，交给了低级别的架构师来完成。实际上这些模块内部的代码量并不小，很多都是几十万行甚至上百万行的代码量。这时候架构师的水平决定了代码的Clean Code质量。我司目前代码上的问题很多不是系统架构的问题，而是具体业务实现中，缺少严格的要求和合理的架构设计。如果在应用级别有一套架构方案来规范，那么至少在模块的接口以及模块与模块之前的交互上也能达到和系统设计一样较为清晰合理。那么不确定的部分就时每个子模块内部几千上万行的代码部分。</p>
+<p>最近做项目技术评审时，遇到一个典型的例子。一个团队写了一个socket库，底层依赖特定平台的系统库。如果要把该socket库移植到linux或者别的平台，就需要较大规模的重构。重构的方法应该很容易理解，就是通过适配器模式，把底层的操作抽象成接口（这里针对socket库来说，底层库是一种依赖，不同的场景要区别对待底层库，不要一概而论），实际代码不关注具体平台的具体实现，而通过实现不同平台的adapter来进行适配解决该问题。然而在开发初期，其设计在搭建代码框架、测试框架时就会发现底层库是一种耦合，测试时不得不做Mock来实现测试替身。如果这时候就考虑解耦式设计，那么当支持不同平台时，架构本身就天然支持而不需要再重构了。</p>
+<p>之所以提出用测试驱动架构和代码质量，当给测试提出一个很高的标准时（之前做过的项目中有的项目明确UT不允许使用Mock，测试框架甚至只有单一的Catch2），大家不得不从架构上去解决测试的问题，当测试的问题解决时，代码架构上的Clean Code L3自然而然就达到了。</p>
+<h2 id="七、从“我要写测试依赖代码”到“我要写测试依赖代码”"><a href="#七、从“我要写测试依赖代码”到“我要写测试依赖代码”" class="headerlink" title="七、从“我要写测试依赖代码”到“我要写测试依赖代码”"></a>七、从“我要写测试依赖代码”到“我要写测试依赖代码”</h2><p>这句话看着很奇怪，实际上是从根本上去解决底层开发者测试的根本方法。 模块之间有依赖，不管是通过Mock还是Fake的方法，不管架构上如何合理，这种依赖是不能消除的，我们做到更多的是合理的设计让依赖与模块解耦。第一个“我要写测试依赖代码”，指的是当我实现我的模块时，我要写测试代码来测试。然而我要考的是如何写我的测试依赖。这时候常常出现了的问题，比如是A1, A2, A3三个模块依赖与B1， B2两个模块，通常情况下我司的做A1，A2，A3的团队或者个人会自己去写B1，B2的依赖，导致重复的测试代码，如果模块设计不合理，测试依赖太多，单元测试成本太高。而第二个“我要写测试依赖代码”指的是，当我实现我的代码时，我要考虑的是依赖我的模块在测试时，对于我的依赖该怎么解决，”我要写测试依赖代码”（就是我说的fake对象与实现）来帮助依赖我的模块解决测试依赖问题。同样的情况在测试A1，A2，A3的时候，B1，B2的依赖已经存在，只要直接关注在测试用例本身就可以了。具体来说：</p>
+<ul>
+<li>思维转变、测试驱动：开发一个模块，不要先考虑怎么测试自己，先考虑如果别人依赖我，我该怎么让别人更容易测试。模块的提供者，不止要提供模块代码，还要提供一个可复用的Faked对象（调用验证；返回值；参数验证；参数处理；功能模拟等）。</li>
+<li>模块代码的编写者实现自己的Fake实现，基本上大部分的代码是由模块编写者来完成，同时这是一个可复用的Fake实现。模块依赖方根据自己一些特殊的业务需求来添加自己的代码。基本上遵循80/20原则。</li>
+<li>架构上依赖解耦，通过注入依赖的方式进行接口编程。产品运行时，模块使用真实的实现对象，而开发者测试使用Fake对象。</li>
+<li>当编写测试代码时，所有依赖的接口、依赖的实现都基本完成，更多的关注些测试用例而不是测试依赖。</li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：【转】开发者测试必须知道的7件事</li>
+        <li>本文作者：Ray</li>
+        <li>创建时间：2022-10-11 21:00:00</li>
+        <li>
+            本文链接：https://www.ray0728.cn/2022/10/11/221011-开发者测试必须知道的7件事/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85%E6%B5%8B%E8%AF%95/">#开发者测试</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%95%8F%E6%8D%B7/">#敏捷</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/10/13/221012-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%B8%89)-%E6%88%91%E7%9A%84%E8%A1%A8%E6%A0%BC%EF%BC%8C%E4%BD%A0%E5%88%AB%E5%8A%A8/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">科学摸鱼之Excel小技巧(三) 我的表格，你别动</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/10/10/221010-%E8%AE%A9WebSocket%E6%94%AF%E6%8C%81Oauth2-TOKEN%E9%AA%8C%E8%AF%81%E7%9A%84%E5%B0%9D%E8%AF%95/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">让WebSocket支持Oauth2 TOKEN验证的尝试</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'x7EKPJccSUW4oG8rk1IuNtoL-9Nh9j0Va',
+                    appKey: 'srEmquGguCjDuK4uW4294jOr',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '请不要见怪，请不要见外。',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Ray';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Ray</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">蜀ICP备2021011938号</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E2%80%9C%E5%BC%80%E5%8F%91%E8%80%85%E6%B5%8B%E8%AF%95%E2%80%9D-%E5%B0%B1%E6%98%AF%E2%80%9C%E5%BC%80%E5%8F%91%E8%80%85%E6%9D%A5%E6%B5%8B%E8%AF%95%E2%80%9D"><span class="nav-number">1.</span> <span class="nav-text">一、“开发者测试” 就是“开发者来测试”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E6%B5%8B%E8%AF%95%E4%B8%8D%E5%8F%AF%E4%BB%A5%E2%80%9C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E2%80%9D"><span class="nav-number">2.</span> <span class="nav-text">二、没有什么测试不可以“自动化测试”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BC%80%E5%8F%91%E8%80%85%E6%B5%8B%E8%AF%95%E2%80%9C%E5%88%A9%E5%9C%A8%E5%BD%93%E4%B8%8B%E2%80%9D%EF%BC%8C%E2%80%9C%E8%B5%A2%E5%BE%97%E6%9C%AA%E6%9D%A5%E2%80%9D"><span class="nav-number">3.</span> <span class="nav-text">三、开发者测试“利在当下”，“赢得未来”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%81%B0%E5%BA%A6TDD%EF%BC%8C%E4%B8%8D%E5%BC%BA%E6%B1%82%E5%BF%85%E9%A1%BB%E5%85%88%E5%86%99%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">四、灰度TDD，不强求必须先写测试代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81UT%E8%A6%86%E7%9B%96%E7%8E%87100-%E7%9C%9F%E7%9A%84%E5%BE%88%E4%B8%8D%E5%A5%BD"><span class="nav-number">5.</span> <span class="nav-text">五、UT覆盖率100%真的很不好</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E7%94%A8%E6%B5%8B%E8%AF%95%E6%9D%A5%E9%A9%B1%E5%8A%A8%E6%9E%B6%E6%9E%84%E5%92%8C%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F"><span class="nav-number">6.</span> <span class="nav-text">六、用测试来驱动架构和代码质量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E4%BB%8E%E2%80%9C%E6%88%91%E8%A6%81%E5%86%99%E6%B5%8B%E8%AF%95%E4%BE%9D%E8%B5%96%E4%BB%A3%E7%A0%81%E2%80%9D%E5%88%B0%E2%80%9C%E6%88%91%E8%A6%81%E5%86%99%E6%B5%8B%E8%AF%95%E4%BE%9D%E8%B5%96%E4%BB%A3%E7%A0%81%E2%80%9D"><span class="nav-number">7.</span> <span class="nav-text">七、从“我要写测试依赖代码”到“我要写测试依赖代码”</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

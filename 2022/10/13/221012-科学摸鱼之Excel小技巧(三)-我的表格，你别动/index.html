@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="向着财富与自由前进吧">
+    <meta name="author" content="Ray">
+    
+    <title>
+        
+            科学摸鱼之Excel小技巧(三) 我的表格，你别动 |
+        
+        Ray的日记本
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://arts.ray0728.cn/images/2021/08/01/logo.png","favicon":"https://arts.ray0728.cn/images/2021/08/01/logo.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/mybg.svg","description":"格物 致知 诚意 正心"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Ray的日记本
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/"
+                            >
+                                CODE
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/">CODE</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">科学摸鱼之Excel小技巧(三) 我的表格，你别动</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Ray</span>
+                        
+                            <span class="author-label">CTO</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-13 22:00:00</span>
+        <span class="mobile">2022-10-13 22:00</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Office/">Office</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/office/">office</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/excel/">excel</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/07/31/logo.png" alt="logo.png" style="zoom:50%;">
+
+<p>  接<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2022/08/04/%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%BA%8C)/">上一期<i class="fas fa-external-link-alt"></i></a>我们分享了几个关于EXCEL的使用小技巧，本期我们继续聊一聊Excel其它看上去很酷炫的操作。</p>
+<p>  本期内容同样是天选打工人熬夜整理出来的，吐血推荐。</p>
+<p>  下面就开始我们今天的<strong>摸鱼小技巧</strong>吧。</p>
+<hr>
+<p>  针对不同的保护需要，今天向大家介绍几种简单好用的表格保护功能。</p>
+<ul>
+<li>工作表的保护</li>
+<li>Sheet页的保护</li>
+<li>工作簿的保护</li>
+</ul>
+<span id="more"></span>
+<p>  日常办公中免不了会有各种各样的表格需要分发给不同的人使用，如将统计数据后发给部门同事查看。但是又不想让Excel中的数据被修改，即<strong>“普通用户”</strong>只拥有<strong>只读</strong>权限。这个时候我们可以用到Excel中最基础的<strong>工作表保护</strong>功能。</p>
+<h2 id="我的工作表不让动"><a href="#我的工作表不让动" class="headerlink" title="我的工作表不让动"></a>我的工作表不让动</h2><h3 id="工作表仅可查看"><a href="#工作表仅可查看" class="headerlink" title="工作表仅可查看"></a>工作表仅可查看</h3><p>  该功能可限制用户对工作表中的操作。<strong>注意</strong>该功能仅对当前的工作表（即当前Sheet页）有效。它的操作很简单：</p>
+<ul>
+<li><p>STEP1. 点击菜单栏中的<strong>审阅</strong></p>
+</li>
+<li><p>STEP2. 再点击<strong>保护工作表</strong>即可。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://arts.ray0728.cn/image/ZE77"><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/09/21/86a024f68afb089d62b10d7bf476cfa5.jpg" alt="工作表保护" style="zoom:50%;"></a></p>
+<p>  默认保护情况下，只允许选中单元格，其余操作都不允许。若需更改，根据实际需要选取不同的选项即可。连续2次输入密码后，工作表就处于被保护状态，默认状态为只可查看，不可编辑。效果如下：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/02-.min.gif" alt="02-.min.gif"></p>
+<p>  要取消也很简单，点击<strong>审阅</strong>中的<strong>撤销工作表保护</strong>即可。</p>
+<h3 id="工作表仅允许部分区域编辑"><a href="#工作表仅允许部分区域编辑" class="headerlink" title="工作表仅允许部分区域编辑"></a>工作表仅允许部分区域编辑</h3><p>  可有的时候，并不是简单的允许或不允许编辑，就像这个世界一样，并不是只有黑色和白色，还是要允许有多种多样的颜色存在。在实际工作中我们也确实会遇到<strong>既要</strong>让别人不能动我的表格，<strong>又要</strong>别人能在表格中回填信息的场景。假设我们想在上述例子的表中既要员工不能动自己的部门信息，又要员工能自己填入联系方式该怎么办呢？</p>
+<p>  我们可以设置<strong>单元格格式</strong>进行指定哪些区域的单元格不受保护。</p>
+<ul>
+<li>STEP1. 选择不需要保护的单元格，并单击右键，选择<strong>设置单元格格式</strong></li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/ab08bb2da2d0c836cfe00caa4f53790b.jpg" alt="ab08bb2da2d0c836cfe00caa4f53790b.jpg"></p>
+<ul>
+<li><p>STEP2.  在弹出的<strong>设置单元格格式</strong>窗口中，选择<strong>保护</strong>页，并取消<strong>锁定</strong>勾选框。</p>
+</li>
+<li><p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/bddd2b7f4050df00b769a0bbcad0292a.jpg" alt="bddd2b7f4050df00b769a0bbcad0292a.jpg"></p>
+</li>
+<li><p>STEP3. 按照<strong>【工作表仅可查看】</strong>中介绍的步骤对工作表进行设置即可。</p>
+<p>效果如下：<br><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/03-.min.gif" alt="03-.min.gif"></p>
+</li>
+</ul>
+<h3 id="工作表允许不同的人编辑不同的区域"><a href="#工作表允许不同的人编辑不同的区域" class="headerlink" title="工作表允许不同的人编辑不同的区域"></a>工作表允许不同的人编辑不同的区域</h3><p>  感谢能耐心的读到这里，那么，我们再进一步。如果我们希望工作表中某些区域允许A用户编辑，另一些区域允许B用户编辑，同时A用户与B用户不可以编辑对方的数据，又该怎么做呢？</p>
+<p>  我们可以通过设置<strong>允许编辑区域</strong>来实现这一目的。</p>
+<ul>
+<li>STEP 1. 通过工具栏中的<strong>审阅</strong>选项卡，点击<strong>允许编辑区域</strong>，打开设置选项窗口。</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/c5d5208df21f190e39d35ea743ce9f1a.jpg" alt="c5d5208df21f190e39d35ea743ce9f1a.jpg"></p>
+<ul>
+<li><p>STEP 2. 在弹出窗口中点击<strong>新建</strong>，打开新区域参数窗口。其中的<strong>标题</strong>可以取任意方便理解的名字，<strong>引用单元格</strong>则指需要作用的范围。<strong>区域密码</strong>是指访问（编辑）该区域所需要的密码。</p>
+<p>举个例子：假设仅成都的HR有权对Base地为成都区域的人员做薪资信息修改，那么配置如下图。</p>
+</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/13915ede8bc3424c617e214bb0bc5815.jpg" alt="13915ede8bc3424c617e214bb0bc5815.jpg"></p>
+<ul>
+<li>STEP 3. 将所有需要设置的区域按上面的步骤设置完之后，大概就长下面这个样子。</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/a06b6780fc778f409434d3bc83d72309.jpg" alt="a06b6780fc778f409434d3bc83d72309.jpg"></p>
+<ul>
+<li>STEP 4. 按照<strong>【工作表仅可查看】</strong>中介绍的步骤对工作表进行设置即可。</li>
+</ul>
+<p>效果如下：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/04-.minb35fe735defc6f31.gif" alt="04-.minb35fe735defc6f31.gif"></p>
+<h2 id="我的Sheet页不让看"><a href="#我的Sheet页不让看" class="headerlink" title="我的Sheet页不让看"></a>我的Sheet页不让看</h2><p>  上面介绍了几种保护工作表的方法，不过都仅局限于工作表，对于Sheet页是无效的。那么Sheet页有保护的需要吗？这样的场景应该是存在的，比如上面示例中的表格包含三个Sheet页，其中有一个Sheet页是部门信息，如果为了更好的保护信息，可能需要隐藏这个Sheet页，那么又该怎么做呢？</p>
+<h3 id="初级隐藏术"><a href="#初级隐藏术" class="headerlink" title="初级隐藏术"></a>初级隐藏术</h3><p>  最简单的方法当然就是鼠标右键点击希望隐藏的Sheet，选择隐藏即可。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/Sheeta804141789c470db.jpg" alt="Sheeta804141789c470db.jpg"></p>
+<p>  这个方法操作很简单，但是也很容易被破解，只需要在剩下的Sheet页上同样用鼠标右键点击，选择取消隐藏即可恢复。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/Sheet.jpg" alt="Sheet.jpg"></p>
+<h3 id="高级隐藏术"><a href="#高级隐藏术" class="headerlink" title="高级隐藏术"></a>高级隐藏术</h3><p>  简单隐藏术并不适用需要深度隐藏的Sheet，我们可以使用进阶版隐藏术达到更好的隐藏效果。再开始之前需要知道一个小技巧（快捷键）：<kbd>ALT + F11</kbd>，这个快捷键可以打开Excel的VBA编辑器。好了，我们来看看怎么做。</p>
+<ul>
+<li>STEP 1. 使用快捷键打开VBA编辑器，这里能看到我们的Sheet页都在左边的树状结构中，点击其中需要隐藏的Sheet页名称。</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/VBSheet.jpg" alt="VBSheet.jpg"></p>
+<ul>
+<li><p>STEP 2. 可以在左下方看见有一个属性窗口，其中有一个<strong>Visible（可见性）</strong>的选项，点击右侧的下拉选项菜单，根据需要选择即可。Excel提供了三种选项，分别是：</p>
+<p>-1 ：可见</p>
+<p> 0 ： 隐藏（效果等同于简单隐藏术中的效果）</p>
+<p> 2 ： 超级隐藏（深度隐藏的意思）</p>
+</li>
+</ul>
+<p>效果如下：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/06-.min.gif" alt="06-.min.gif"></p>
+<p><strong>备注</strong> 使用了高级隐藏术，隐藏的Sheet页在表格中是完全看不见的，包括鼠标右键菜单也无<strong>取消隐藏</strong>的选项。但是如果使用者同样知道这个方法，只需要打开VBA编辑器，即可轻松恢复。因此还需要进一步增强。</p>
+<h3 id="增强版高级隐藏术（隐藏VBA）"><a href="#增强版高级隐藏术（隐藏VBA）" class="headerlink" title="增强版高级隐藏术（隐藏VBA）"></a>增强版高级隐藏术（隐藏VBA）</h3><p>  上面我们看到了初级和高级两种隐藏术，高级隐藏术的效果上明显优于初级，但是却存在一个很大的漏洞，所以我们需要对VBA同样进行隐藏，防止使用者通过VBA进行恢复。步骤如下：</p>
+<ul>
+<li><p>STEP 1. 使用快捷键（<kbd>ALT + F11</kbd>）打开VBA编辑器，<strong>如果没有任何函数，需要在其中写入任意函数</strong>。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/VBA.jpg" alt="VBA.jpg"></p>
+</li>
+<li><p>STEP 2. 鼠标右键单击左侧窗口中的<strong>VBAProject</strong>，并选择<strong>VBAProject属性</strong></p>
+</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/VBA-.jpg" alt="VBA-.jpg"></p>
+<ul>
+<li>STEP 3. 在弹出的<strong>工程属性</strong>窗口中选择<strong>保护</strong>，并勾选<strong>查看时锁定工程</strong>，以及填入对应的<strong>密码</strong>。</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/VBAee1d7890c5f3e0cb.jpg" alt="VBAee1d7890c5f3e0cb.jpg"></p>
+<ul>
+<li>STEP 4. 保存VBA、保存Excel表格，若要立即生效，需重新打开当前表格。</li>
+</ul>
+<p>当重新打开表格后，访问VBA就需要输入密码才可访问，这样就防止隐藏的Sheet页从VBA编辑器中恢复。</p>
+<p>效果如下：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/VBA.gif" alt="VBA.gif"></p>
+<h2 id="我的表格文件不让动"><a href="#我的表格文件不让动" class="headerlink" title="我的表格文件不让动"></a>我的表格文件不让动</h2><p>  上面介绍了对工作表、Sheet页的多种保护手段，那么对于Excel文件本身呢？当然也可以进行保护，并且方法也很简单（毕竟咱一开始就说好，今天介绍的方法都要简单又好用的嘛）。步骤如下：</p>
+<ul>
+<li>STEP 1. 选择<strong>另存为</strong>，并在弹出的保存对话框中点击<strong>工具</strong>，选择<strong>常规选项</strong>。</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/19b6c2842b3df7379b999404e11cf5c3.jpg" alt="19b6c2842b3df7379b999404e11cf5c3.jpg"></p>
+<ul>
+<li>STEP 2. 在弹出的对话框中，可根据需要填入<strong>打开权限密码</strong>和<strong>修改权限密码</strong></li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/13/cd8834db7bd19fff2bc028699a3e7e8e.jpg" alt="cd8834db7bd19fff2bc028699a3e7e8e.jpg"></p>
+<p>  是的，就是这么简单，即可限制当前Excel文件的被使用范围，感兴趣的小伙伴可以自己试试看。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>  结合上面介绍的多种方法，运用合理得当，可以轻松实现Excel表格的各种保护需要，当然对与表格的保护，在实际工作中可能会更加复杂，比如希望不同的用户打开，展现不同的Sheet页，或者不同的用户打开，展现不同的单元格内容等等，这些其实都可以做到，在后面的<strong>摸鱼小技巧</strong>中再跟大家总结吧。</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：科学摸鱼之Excel小技巧(三) 我的表格，你别动</li>
+        <li>本文作者：Ray</li>
+        <li>创建时间：2022-10-13 22:00:00</li>
+        <li>
+            本文链接：https://www.ray0728.cn/2022/10/13/221012-科学摸鱼之Excel小技巧(三)-我的表格，你别动/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/office/">#office</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/excel/">#excel</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/10/17/221016-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E5%9B%9B)-%E5%8D%95%E5%85%83%E6%A0%BC%E6%A0%BC%E5%BC%8F/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">科学摸鱼之Excel小技巧(四) 单元格格式更智能</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/10/11/221011-%E5%BC%80%E5%8F%91%E8%80%85%E6%B5%8B%E8%AF%95%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%847%E4%BB%B6%E4%BA%8B/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">【转】开发者测试必须知道的7件事</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'x7EKPJccSUW4oG8rk1IuNtoL-9Nh9j0Va',
+                    appKey: 'srEmquGguCjDuK4uW4294jOr',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '请不要见怪，请不要见外。',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Ray';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Ray</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">蜀ICP备2021011938号</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E4%B8%8D%E8%AE%A9%E5%8A%A8"><span class="nav-number">1.</span> <span class="nav-text">我的工作表不让动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E8%A1%A8%E4%BB%85%E5%8F%AF%E6%9F%A5%E7%9C%8B"><span class="nav-number">1.1.</span> <span class="nav-text">工作表仅可查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E8%A1%A8%E4%BB%85%E5%85%81%E8%AE%B8%E9%83%A8%E5%88%86%E5%8C%BA%E5%9F%9F%E7%BC%96%E8%BE%91"><span class="nav-number">1.2.</span> <span class="nav-text">工作表仅允许部分区域编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%85%81%E8%AE%B8%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%BA%E7%BC%96%E8%BE%91%E4%B8%8D%E5%90%8C%E7%9A%84%E5%8C%BA%E5%9F%9F"><span class="nav-number">1.3.</span> <span class="nav-text">工作表允许不同的人编辑不同的区域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84Sheet%E9%A1%B5%E4%B8%8D%E8%AE%A9%E7%9C%8B"><span class="nav-number">2.</span> <span class="nav-text">我的Sheet页不让看</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E7%BA%A7%E9%9A%90%E8%97%8F%E6%9C%AF"><span class="nav-number">2.1.</span> <span class="nav-text">初级隐藏术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E9%9A%90%E8%97%8F%E6%9C%AF"><span class="nav-number">2.2.</span> <span class="nav-text">高级隐藏术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E5%BC%BA%E7%89%88%E9%AB%98%E7%BA%A7%E9%9A%90%E8%97%8F%E6%9C%AF%EF%BC%88%E9%9A%90%E8%97%8FVBA%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">增强版高级隐藏术（隐藏VBA）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E8%A1%A8%E6%A0%BC%E6%96%87%E4%BB%B6%E4%B8%8D%E8%AE%A9%E5%8A%A8"><span class="nav-number">3.</span> <span class="nav-text">我的表格文件不让动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="nav-number">4.</span> <span class="nav-text">结束语</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

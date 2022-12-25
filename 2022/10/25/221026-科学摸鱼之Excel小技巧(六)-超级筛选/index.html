@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="向着财富与自由前进吧">
+    <meta name="author" content="Ray">
+    
+    <title>
+        
+            科学摸鱼之Excel小技巧(六) 高级筛选 |
+        
+        Ray的日记本
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://arts.ray0728.cn/images/2021/08/01/logo.png","favicon":"https://arts.ray0728.cn/images/2021/08/01/logo.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/mybg.svg","description":"格物 致知 诚意 正心"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Ray的日记本
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/"
+                            >
+                                CODE
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/">CODE</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">科学摸鱼之Excel小技巧(六) 高级筛选</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Ray</span>
+                        
+                            <span class="author-label">CTO</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-25 13:00:00</span>
+        <span class="mobile">2022-10-25 13:00</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Office/">Office</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/office/">office</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/excel/">excel</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/07/31/logo.png" alt="logo.png" style="zoom:50%;">
+
+<p>  接<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2022/10/24/221024-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%BA%94)-%E6%9C%89%E6%95%88%E7%AD%9B%E9%80%89/">上一期<i class="fas fa-external-link-alt"></i></a>我们分享了怎么筛选合并单元格的小技巧，本期我们继续聊一聊Excel其它看上去很酷炫的操作。</p>
+<p>  本期内容同样是天选打工人熬夜整理出来的，吐血推荐。</p>
+<p>  下面就开始我们今天的<strong>摸鱼小技巧</strong>吧。</p>
+<hr>
+<p>  Excel的<strong>筛选功能</strong>是打工人日常用得最多的功能，它简单、好用，能快速地从数据表格中筛选出想要的内容，但是这并不是筛选的全部能力，今天给大家带来不太一样的筛选 —— 高级筛选。</p>
+<span id="more"></span>
+
+<h2 id="普通的筛选"><a href="#普通的筛选" class="headerlink" title="普通的筛选"></a>普通的筛选</h2><p>  普通筛选应该是我们日常使用最多的一种筛选方式，打开的方式也很简单，使用快捷键<kbd>CTRL+SHIFT+L</kbd>，或点击<strong>开始菜单栏</strong>中的<strong>排序和筛选</strong>即可。</p>
+<h3 id="单条件筛选"><a href="#单条件筛选" class="headerlink" title="单条件筛选"></a>单条件筛选</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/25/6641c22a3d265c2af27adb59903f4f39.jpg" alt="筛选菜单"></p>
+<p>  启动筛选功能后，能发现表头的每个单元格都带上了一个向下的三角形按钮。点击这个按钮即可对该列的单元格进行筛选。</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/25/gifski.gif" alt="条件筛选"></h3><p>  Excel会根据单元格数据类型，提供不同的二级菜单，通过这些菜单，我们可以实现简单的多条件筛选。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/25/430e1de676f8f3b691477cceb02cfa44.png" alt="筛选子菜单"></p>
+<h3 id="多条件筛选"><a href="#多条件筛选" class="headerlink" title="多条件筛选"></a>多条件筛选</h3><p>  多条件筛选，更像是简单的<strong>逻辑判断组合</strong>。可以支持以下几种逻辑组合：</p>
+<ul>
+<li>符合条件A</li>
+<li>符合条件A<strong>或者</strong>符合条件B</li>
+<li>符合条件A<strong>并且</strong>符合条件B<br>  需要注意的是，条件A以及条件B均只对当前列进行判断、不可跨列、跨工作表判断。</li>
+</ul>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p>  假设我们有这样的员工信息表，我们想从中筛选出职级处于15级与20级之间的所有员工，那么就可以用到条件筛选。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/25/446fe181943323ab014d6078b15ec1f1.jpg" alt="原始数据"></p>
+<p>  点击职级旁边的三角形按钮，在弹出菜单中选择<strong>数字筛选</strong>，再点击子选项<strong>自定义自动筛选</strong>，在弹出的选项框中填入大于15与小于20即可。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/25/abbe5198479760324099993726ead67f.jpg" alt="自定义自动筛选"></p>
+<p>  点击确定后，可以立即看到筛选结果，符合我们的预期。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/25/eeb30ee95372d9d67cb46a0d014bc93a.jpg" alt="条件筛选结果"></p>
+<p>  不过这只能筛选出当前列的结果，如果有跨列筛选的需求，就得用到级联筛选。</p>
+<h3 id="级联筛选"><a href="#级联筛选" class="headerlink" title="级联筛选"></a>级联筛选</h3><p>  级联筛选也可以叫联合筛选，是将多列筛选组合在一起的一种方式，也是一种<strong>逻辑判断组合</strong>，比如：</p>
+<ul>
+<li><p>同时筛选职级在15级到20级<strong>且</strong>二级部门属于研发部的员工</p>
+</li>
+<li><p>同时筛选Base地在成都<strong>且</strong>入职时间在2022年10月17日之后的员工</p>
+</li>
+</ul>
+<p>  不知道大家发现了没有，<strong>级联筛选中列的筛选条件之间，只存在并的关系</strong>。因此级联筛选是<strong>无法筛选出</strong>职级在15级到20级<strong>或者</strong>二级部门属于研发部的员工。感兴趣的小伙伴们，可以自己找个Excel表格试试看。</p>
+<p>  通常普通的打工人能用到的筛选就以上这些了。如果我也只分享这些，那就对不起<strong>科学摸鱼</strong>这个称号了，如果说上面介绍的几种筛选方式可以满足我们日常工作中70%的需求，那么接下来和大家分享一个<strong>高级筛选</strong>能力，则可以<strong>满足90%的需求</strong>。</p>
+<h2 id="高级筛选"><a href="#高级筛选" class="headerlink" title="高级筛选"></a>高级筛选</h2><p>  我们常常说<strong>既要，又要，还要</strong>，在日常工作中也常常碰到这样的场景，既要满足条件A，又要满足条件B，还要满足条件C，比如下面这样的场景：</p>
+<p>  团队即将启动新的项目，需要新建团队，需要从员工列表中筛选出符合条件的员工。条件分别是：</p>
+<ul>
+<li>软件研发团队最好是成都的团队，成员职级不要低于14级，但是也不要超过20级</li>
+<li>项目做的时候需要对市场进行舆情分析和活动预热，最好由北京的同事完成</li>
+<li>项目的成果是面向所有群体，需要所有销售同事参与，不限制区域、职级</li>
+</ul>
+<p>  如果是你来筛选人选，会怎么做呢？如果按照上面普通筛选方法的话，就得对表格做好几次的筛选，才能把人员都筛选出来。如果你也觉得那样很麻烦，那就请接着往下看吧。</p>
+<h3 id="什么是高级筛选"><a href="#什么是高级筛选" class="headerlink" title="什么是高级筛选"></a>什么是高级筛选</h3><p>  Excel支持更复杂的条件筛选，支持更复杂的逻辑（与或）组合甚至支持通配符匹配。这一切都藏在<strong>数据菜单栏</strong>的<strong>高级</strong>里面</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/25/e4f8f3a37beed27f84018cd04fa5bc80.jpg" alt="入口"></p>
+<blockquote>
+<p>“<strong>高级</strong>”命令的工作方式在几个重要方面与“<strong>筛选</strong>”命令有所不同。</p>
+<ul>
+<li>它显示了“<strong>高级筛选</strong>”对话框，而不是“自动筛选”菜单。</li>
+<li>可以在工作表以及要筛选的单元格区域或表格上的单独条件区域中键入高级条件。 Microsoft Office Excel 将“<strong>高级筛选</strong>”对话框中的单独条件区域用作高级条件的源。</li>
+</ul>
+</blockquote>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>  先别慌着点<strong>高级</strong>这个按钮，在使用高级筛选前，还有准备工作要做，首先需要准备一个条件表格。表格里需保存所有期望筛选的内容。并且这个表格需遵守下面四条“公约”：</p>
+<h4 id="公约一-条件表格的表头均能在数据表的表头中找到"><a href="#公约一-条件表格的表头均能在数据表的表头中找到" class="headerlink" title="公约一 条件表格的表头均能在数据表的表头中找到"></a>公约一 条件表格的表头均能在数据表的表头中找到</h4><p>  这条公约的意思是用于表示条件的表头描述，必须能在希望筛选的数据表表头中找到，否则Excel将无法知道该表头应该对应数据表哪一列数据。假如有如下数据表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">C</th>
+<th align="center">D</th>
+<th align="center">E</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">这</td>
+<td align="center">这</td>
+<td align="center">这</td>
+<td align="center">这</td>
+<td align="center">这</td>
+</tr>
+<tr>
+<td align="center">是</td>
+<td align="center">是</td>
+<td align="center">是</td>
+<td align="center">是</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">A</td>
+<td align="center">B</td>
+<td align="center">C</td>
+<td align="center">D</td>
+<td align="center">E</td>
+</tr>
+<tr>
+<td align="center">列</td>
+<td align="center">列</td>
+<td align="center">列</td>
+<td align="center">列</td>
+<td align="center">列</td>
+</tr>
+</tbody></table>
+<p>  那么条件表格的表头<strong>只能是A、B、C、D、E中的全部或部分</strong>，但不能是其它内容。</p>
+<h4 id="公约二-条件表格的表头允许出现重复内容"><a href="#公约二-条件表格的表头允许出现重复内容" class="headerlink" title="公约二 条件表格的表头允许出现重复内容"></a>公约二 条件表格的表头允许出现重复内容</h4><p>  仍然以上面的表格为例，条件表格中的表头允许是下面这个样子。</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">B</th>
+<th align="center">E</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">条件一</td>
+<td align="center">条件二</td>
+<td align="center">条件三</td>
+<td align="center">条件四</td>
+</tr>
+</tbody></table>
+<p>  那么它表达的意思是：满足条件一<strong>并且</strong>满足条件二<strong>并且</strong>满足条件三<strong>并且</strong>满足条件四</p>
+<h4 id="公约三-条件表格中的单元格允许空值"><a href="#公约三-条件表格中的单元格允许空值" class="headerlink" title="公约三 条件表格中的单元格允许空值"></a>公约三 条件表格中的单元格允许空值</h4><p>  如果单元格为空值，则不作为条件参与逻辑判断，假如有下面这种格式的条件表格。</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">B</th>
+<th align="center">E</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">条件一</td>
+<td align="center">条件二</td>
+<td align="center"></td>
+<td align="center">条件三</td>
+</tr>
+</tbody></table>
+<p>  那么它表达的意思是：满足条件一<strong>并且</strong>满足条件二<strong>并且</strong>满足条件四。</p>
+<h4 id="公约四条件表格中每一行的逻辑组合均互不干涉"><a href="#公约四条件表格中每一行的逻辑组合均互不干涉" class="headerlink" title="公约四条件表格中每一行的逻辑组合均互不干涉"></a>公约四条件表格中每一行的逻辑组合均互不干涉</h4><p>  同一行中的逻辑关系均为<strong>并且</strong>，但是不同行之间的逻辑关系则为<strong>或者</strong>，假如有下面这种格式的条件表格。</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">B</th>
+<th align="center">E</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">条件一</td>
+<td align="center">条件二</td>
+<td align="center">条件三</td>
+<td align="center">条件四</td>
+</tr>
+<tr>
+<td align="center">条件X</td>
+<td align="center">条件Y</td>
+<td align="center"></td>
+<td align="center">条件Z</td>
+</tr>
+</tbody></table>
+<p>  那么它表达的意思是：</p>
+<p>  满足条件一<strong>并且</strong>满足条件二<strong>并且</strong>满足条件四<br>  <strong>或者</strong><br>  满足条件X<strong>并且</strong>满足条件Y<strong>并且</strong>满足条件Z。</p>
+<p>  好啦，我承认其实并没有“公约”的说法，上面只是我总结的条件表格注意事项罢了。我们知道有上面的注意事项后，结合我们的例子，就可以做出下面这样的条件表格。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/25/76331e8ed47379e00ee8e03955902095.jpg" alt="条件表格"></p>
+<p>  这里面用到了<strong>逻辑运算符</strong><kbd>&gt;与&lt;</kbd>以及通配符<kbd>*</kbd>。通常逻辑运算符可以用来表示范围，而通配符则可以用来做模糊匹配文字内容。</p>
+<h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><p>  准备好条件表格后，就可以开始执行了，<strong>注意</strong>，高级筛选的结果只能在活动页上显示，所以建议<strong>先进入期望保存筛选的结果的Sheet页</strong>，然后再启动高级筛选。</p>
+<p>  筛选需填入的内容很简单，指定三个区域即可。</p>
+<ul>
+<li>列表区域：指原始数据区域，即期望筛选的原始数据表格</li>
+<li>条件区域：我们已准备好的条件表格区域</li>
+<li>复制到：筛选的结果保存在什么地方，<strong>注意：只能保存在激活的Sheet页</strong></li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/25/3bd86cc308d67afe7b2a160e4d7b5e64.jpg" alt="筛选选项"></p>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/25/gifski36f5554b087100a9.gif" alt="高级筛选"></p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>  <strong>条件筛选</strong>和<strong>高级筛选</strong>基本能覆盖我们日常工作中90%以上的筛选场景，它们之间并无谁更好、谁更优的选择，其它也有很多操作可以做到快速筛选的效果，比如透视表。</p>
+<p>  灵活的使用最适当的筛选，才是最好的选择。当然Excel的小技巧不止于此，有特别想了解的，或困惑的都可以给我留言。在后面的摸鱼小技巧中再跟大家分享总结吧。</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：科学摸鱼之Excel小技巧(六) 高级筛选</li>
+        <li>本文作者：Ray</li>
+        <li>创建时间：2022-10-25 13:00:00</li>
+        <li>
+            本文链接：https://www.ray0728.cn/2022/10/25/221026-科学摸鱼之Excel小技巧(六)-超级筛选/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/office/">#office</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/excel/">#excel</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/10/28/221028-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%B8%83)-%E6%83%B3%E6%80%8E%E4%B9%88%E6%8E%92%E5%B0%B1%E6%80%8E%E4%B9%88%E6%8E%92/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">科学摸鱼之Excel小技巧(七) 排序就得听我的</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/10/24/221024-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%BA%94)-%E6%9C%89%E6%95%88%E7%AD%9B%E9%80%89/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">科学摸鱼之Excel小技巧(五) 针对合并单元格的有效筛选</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'x7EKPJccSUW4oG8rk1IuNtoL-9Nh9j0Va',
+                    appKey: 'srEmquGguCjDuK4uW4294jOr',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '请不要见怪，请不要见外。',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Ray';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Ray</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">蜀ICP备2021011938号</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E7%9A%84%E7%AD%9B%E9%80%89"><span class="nav-number">1.</span> <span class="nav-text">普通的筛选</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E6%9D%A1%E4%BB%B6%E7%AD%9B%E9%80%89"><span class="nav-number">1.1.</span> <span class="nav-text">单条件筛选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%9D%A1%E4%BB%B6%E7%AD%9B%E9%80%89"><span class="nav-number">1.3.</span> <span class="nav-text">多条件筛选</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BE%E4%BE%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%A7%E8%81%94%E7%AD%9B%E9%80%89"><span class="nav-number">1.4.</span> <span class="nav-text">级联筛选</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E7%AD%9B%E9%80%89"><span class="nav-number">2.</span> <span class="nav-text">高级筛选</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%AB%98%E7%BA%A7%E7%AD%9B%E9%80%89"><span class="nav-number">2.1.</span> <span class="nav-text">什么是高级筛选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E7%BA%A6%E4%B8%80-%E6%9D%A1%E4%BB%B6%E8%A1%A8%E6%A0%BC%E7%9A%84%E8%A1%A8%E5%A4%B4%E5%9D%87%E8%83%BD%E5%9C%A8%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E8%A1%A8%E5%A4%B4%E4%B8%AD%E6%89%BE%E5%88%B0"><span class="nav-number">2.2.1.</span> <span class="nav-text">公约一 条件表格的表头均能在数据表的表头中找到</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E7%BA%A6%E4%BA%8C-%E6%9D%A1%E4%BB%B6%E8%A1%A8%E6%A0%BC%E7%9A%84%E8%A1%A8%E5%A4%B4%E5%85%81%E8%AE%B8%E5%87%BA%E7%8E%B0%E9%87%8D%E5%A4%8D%E5%86%85%E5%AE%B9"><span class="nav-number">2.2.2.</span> <span class="nav-text">公约二 条件表格的表头允许出现重复内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E7%BA%A6%E4%B8%89-%E6%9D%A1%E4%BB%B6%E8%A1%A8%E6%A0%BC%E4%B8%AD%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E5%85%81%E8%AE%B8%E7%A9%BA%E5%80%BC"><span class="nav-number">2.2.3.</span> <span class="nav-text">公约三 条件表格中的单元格允许空值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E7%BA%A6%E5%9B%9B%E6%9D%A1%E4%BB%B6%E8%A1%A8%E6%A0%BC%E4%B8%AD%E6%AF%8F%E4%B8%80%E8%A1%8C%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%84%E5%90%88%E5%9D%87%E4%BA%92%E4%B8%8D%E5%B9%B2%E6%B6%89"><span class="nav-number">2.2.4.</span> <span class="nav-text">公约四条件表格中每一行的逻辑组合均互不干涉</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C"><span class="nav-number">2.3.</span> <span class="nav-text">执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-number">2.4.</span> <span class="nav-text">效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结束语</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

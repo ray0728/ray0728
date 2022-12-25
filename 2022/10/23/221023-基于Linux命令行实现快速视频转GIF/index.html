@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="向着财富与自由前进吧">
+    <meta name="author" content="Ray">
+    
+    <title>
+        
+            基于Linux命令行实现将视频文件快速转GIF文件 |
+        
+        Ray的日记本
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://arts.ray0728.cn/images/2021/08/01/logo.png","favicon":"https://arts.ray0728.cn/images/2021/08/01/logo.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/mybg.svg","description":"格物 致知 诚意 正心"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Ray的日记本
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/"
+                            >
+                                CODE
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/">CODE</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">基于Linux命令行实现将视频文件快速转GIF文件</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Ray</span>
+                        
+                            <span class="author-label">CTO</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-23 20:00:00</span>
+        <span class="mobile">2022-10-23 20:00</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Linux/">Linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/FFMpeg/">FFMpeg</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Shell/">Shell</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Convert/">Convert</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>  本人的Blog是建在自己的私有云上的，之前在<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2021/11/07/211107-%E6%9C%89%E4%BA%86%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%AF%E4%BB%A5%E5%81%9A%E4%BB%80%E4%B9%88/">《有了云服务器可以做什么》<i class="fas fa-external-link-alt"></i></a>中简单提及过我在小云上跑了不少的应用服务，其中就有为Blog提供视频播放功能NextCloud。虽然后来我觉得NextCloud并不那么实用，还很占用系统资源，于是用相对更轻量的WebDAV服务替换了NextCloud，但它仍然为一款不错的私人网盘应用服务。另外通过网盘共享资源的方式，实现视频点播对小云的系统资源消耗也是挺大的，所以我又想办法<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2021/09/15/210915-%E8%AE%A9%E5%B0%8F%E4%BA%91%E6%94%AF%E6%8C%81%E8%A7%86%E9%A2%91%E5%9C%A8%E7%BA%BF%E6%92%AD%E6%94%BE/">《让小云支持视频在线播放》<i class="fas fa-external-link-alt"></i></a>，即便如此，对于我的1G2G的丐版配置，仍然有不小的资源压力。</p>
+<p>  最后我的解决方案是，Blog中的视频都用GIF代替，消耗资源的事儿就交给客户端想办法吧☺。可问题又来了，我的主力电脑系统是Linux（Deepin、Ubuntu），怎么才能把视频转换成GIF呢？</p>
+<span id="more"></span>
+
+<h2 id="使用在线转换工具"><a href="#使用在线转换工具" class="headerlink" title="使用在线转换工具"></a>使用在线转换工具</h2><p>  这类在线工具，用百度搜索一下<kbd>视频转GIF</kbd>，就能出来很多结果。但是好用的却不太多，如果视频比较大，虽然界面上显示转换完成，但是实际上却什么都没有，比如这样的：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/20/webGIF.jpg" alt="webGIF.jpg"></p>
+<p>  有些在线工具转换的结果又会添加水印或其它什么东西，总之，<strong>效果并不是特别理想</strong>。</p>
+<h2 id="使用软件工具"><a href="#使用软件工具" class="headerlink" title="使用软件工具"></a>使用软件工具</h2><p>  如果是在Windows平台上的话，有很多优秀的工具可以使用，比如FastStone Capture、Screen2GIF等，并且使用也很方便。对于Linux平台上，虽然没有那么多可选择的应用，但是仍然有优秀的工具，比如<a target="_blank" rel="noopener" href="https://gitee.com/mirrors_phw/peek"><strong>Peek</strong></a>就是一款优秀的Linux平台视频录制转GIF工具。</p>
+<p>  细细研究一下Linux平台的应用软件，能发现大多都是利用各种开源组件或模块组合在一起的，比如Peek中GIF功能就是利用了<a class="link" target="_blank" rel="noopener" href="https://gif.ski/">gifski<i class="fas fa-external-link-alt"></i></a>，那么常用的组件有哪些呢？在Linux平台上，常用的有 <a class="link" target="_blank" rel="noopener" href="https://ffmpeg.org/">ffmpeg<i class="fas fa-external-link-alt"></i></a>、<a class="link" target="_blank" rel="noopener" href="https://imagemagick.org/script/index.php">convert<i class="fas fa-external-link-alt"></i></a>以及刚刚提到的<a class="link" target="_blank" rel="noopener" href="https://gif.ski/">gifski<i class="fas fa-external-link-alt"></i></a>。</p>
+<h2 id="使用三方组件"><a href="#使用三方组件" class="headerlink" title="使用三方组件"></a>使用三方组件</h2><h3 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h3><p>  FFmepg算是Linux平台用途最广、使用频率最高的开源组件了，无论是视频播放、还是视频后期处理，甚至视频推流都离不开FFmpeg，几乎所有涉及多媒体的工具都可以找到FFmpeg组件。</p>
+<blockquote>
+<p>FFmpeg is the leading multimedia framework, able to <strong>decode</strong>, <strong>encode</strong>, <strong>transcode</strong>, <strong>mux</strong>, <strong>demux</strong>, <strong>stream</strong>, <strong>filter</strong> and <strong>play</strong> pretty much anything that humans and machines have created. It supports the most obscure ancient formats up to the cutting edge. No matter if they were designed by some standards committee, the community or a corporation. It is also highly portable: FFmpeg compiles, runs, and passes our testing infrastructure <a class="link" target="_blank" rel="noopener" href="http://fate.ffmpeg.org/">FATE<i class="fas fa-external-link-alt"></i></a> across Linux, Mac OS X, Microsoft Windows, the BSDs, Solaris, etc. under a wide variety of build environments, machine architectures, and configurations.</p>
+</blockquote>
+<p>  作为视频处理一哥，将视频转换为GIF，自然不在话下，配合简单的参数即可实现。</p>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p><code>ffmpeg -i test.mp4 ffmpeg.gif</code>，这句命令的意思是将test.mp4按照其视频分辨率、帧率转换为ffmpeg.gif文件。如果想调整生产GIF文件的参数，可以配合以下参数实现：</p>
+<blockquote>
+<p>-ss time_off: 从指定的时间（单位为秒）开始，支持[-]hh：mm：ss[.xxx]的格式</p>
+<p>-t duration  : 指定时长</p>
+<p>-r rate         : 帧速率（fps）</p>
+<p>-s size         : 指定分辨率</p>
+</blockquote>
+<p>  当然FFmpeg的参数可不止这点，还支持很多的操作，比如按比例缩放<code>-vf scale</code>等等，有兴起的可以去网上搜索下相关的介绍，这里就不过多展开了。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>  一般来说主流的Linux发行版都支持命令行直接安装，网上搜索一下就能找到，比如:</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">apt install ffmpeg
+yum install ffmpeg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>  通过命令行安装，虽然方便，但是ffmpeg版本一般比较低（与主机版本能更好的兼容）。如果想尝试新的功能，请确认当前版本可支持。</p>
+<p>  另一种方式是通过源码进行编译安装，好处在于能用上最新版本的ffmpeg，不过编译过程稍显麻烦。因为不同的Linux发行版，编译方法也略有不同，可在网上搜索一下最新的编译方式，大致步骤如下：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./configure
+make
+make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Convert"><a href="#Convert" class="headerlink" title="Convert"></a>Convert</h3><p>  Convert并不是一个独立的组件或应用，它只是ImageMagick提供的一个图像转换功能。所以如果想在Linux平台上使用Convert，则需要完整安装ImageMagick才行。</p>
+<blockquote>
+<p>Use ImageMagick<a class="link" target="_blank" rel="noopener" href="http://tarr.uspto.gov/servlet/tarr?regser=serial&amp;entry=78333969">®<i class="fas fa-external-link-alt"></i></a> to create, edit, compose, or convert digital images. It can read and write images in a variety of <a class="link" target="_blank" rel="noopener" href="https://imagemagick.org/script/formats.php">formats<i class="fas fa-external-link-alt"></i></a> (over 200) including PNG, JPEG, GIF, WebP, HEIC, SVG, PDF, <a class="link" target="_blank" rel="noopener" href="https://imagemagick.org/script/motion-picture.php">DPX<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="https://imagemagick.org/script/high-dynamic-range.php">EXR<i class="fas fa-external-link-alt"></i></a> and TIFF. ImageMagick can resize, flip, mirror, rotate, distort, shear and transform images, adjust image colors, apply various special effects, or draw text, lines, polygons, ellipses and Bézier curves.</p>
+</blockquote>
+<p>  convert虽然只是ImageMagick的子功能，但是其功能也是很丰富的。</p>
+<h4 id="用法-1"><a href="#用法-1" class="headerlink" title="用法"></a>用法</h4><p>比如这样：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#转换图片格式，支持JPG, BMP, PCX, GIF, PNG, TIFF, XPM和XWD等类型
+convert xxx.jpg xxx.png   #讲jpeg转换为png文件
+#改变图像大小
+convert -resize 1024x768 xxx.jpg  xxx1.jpg #将图像的像素改为1024768(注意1024与768之间是小写字母x)
+*convert -sample 50%x50% xxx.jpg  xxx1.jpg #将图像缩小为原来的50%50%
+#旋转图像
+*convert -rotate 270 sky.jpg sky-final.jpg #将图像顺时针旋转270度 
+#为图像加上文字
+*convert -fill black -pointsize 60 -font helvetica -draw 'text 10,80 "hello world ! "' #xxx.jpg xxx1.jpg在图像的10,80位置用60磅全黑Helvetica字体上写hello world！
+#批量文件格式转换
+mogrify -path newdir -format png *.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  对于视频转GIF，则可以通过将视频按帧，拆分为很多很多的单张图片，然后将这些单张图片再合并为一个GIF图片。图片合并可用下面的命令：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">convert -delay 10 -loop 0 *.png convert.gif<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  这句命令的意思是将所有png图片转换为一张GIF文件，这里用到了2个新的参数<kbd>-delay</kbd>和<kbd>-loop</kbd>，它们的定义分别是：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">-delay value         间隔多久（毫秒）显示下一张图片
+-loop iterations     在文件中添加循环播放标志<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>  看到这里自然就会发现一个问题，假如我的png图片足够多，或者单张png图片足够大（比如4K分辨率），那么合成的GIF文件是不是就越大？假如我构造一个足够多，且文件足够大的图库，然后执行convert转换为GIF，是不是会把主机的资源全部占完？OOM？这个假设完全没毛病，实际情况也确实这样，再需要转换超大文件的时候convert常常会报<strong>cache resources exhausted</strong>异常。</p>
+<h4 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h4><p>  一般来说convert报cache类的异常都是因为没有足够的系统资源用于转换图片导致。不过值得庆幸的是，convert并不是将系统所有资源消耗光了，才报这样的异常，主机系统依然可以正常工作运行。</p>
+<p>  这得益于convert自己的内存分配策略。通过命令<code>convert -list policy</code>可以查询当前系统下convert的内存策略。</p>
+<blockquote>
+<p>Path: /etc/ImageMagick-6/policy.xml<br>  Policy: Resource<br>    name: disk<br>    value: 2GiB<br>  Policy: Resource<br>    name: map<br>    value: 1GiB<br>  Policy: Resource<br>    name: memory<br>    value: 512GiB<br> … …<br>  Policy: Coder<br>    rights: None<br>    pattern: XPS</p>
+<p>Path: [built-in]<br>  Policy: Undefined<br>    rights: None</p>
+</blockquote>
+<p>  从返回的结果中，能看到policy配置文件的路径以及各种场景下的内存配置大小，可以根据需要修改policy配置文件中对应的子项即可。</p>
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>  和FFmpeg一样，主流的Linux发行版都可以通过命令行直接安装。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">apt install imagemagick
+yum install imagemagick<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>  也可以通过<a class="link" target="_blank" rel="noopener" href="https://imagemagick.org/script/download.php#linux">官网下载<i class="fas fa-external-link-alt"></i></a>已编译好的二进制文件或封装包，使用安装命令进行安装。</p>
+<h3 id="GifSki"><a href="#GifSki" class="headerlink" title="GifSki"></a>GifSki</h3><p>  GifSki是独立的开源软件，其目标就是将视频转换为更优的GIF，支持简单的参数配置，由于其目前并未部署在常见的应用仓库中，所以只能通过Rust进行安装。</p>
+<blockquote>
+<p><strong>gifski</strong> converts video frames to GIF animations using pngquant’s fancy features for efficient cross-frame palettes and temporal dithering. It produces animated GIFs that use <em>thousands</em> of colors per frame.</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://github.com/ImageOptim/gifski">It’s open-source<i class="fas fa-external-link-alt"></i></a>! It’s a CLI tool, but it can also be compiled as a <strong>library</strong> for seamless use in other apps ([ask me](mailto: <a class="link" href="mailto:kornel@pngquant.org">kornel@pngquant.org<i class="fas fa-external-link-alt"></i></a>?) or <a class="link" target="_blank" rel="noopener" href="https://supso.org/projects/pngquant">get a commercial license<i class="fas fa-external-link-alt"></i></a> if you want to use it in a closed-source app or web service).</p>
+</blockquote>
+<p>  上面介绍的几种工具都可以实现视频转GIF，那么他们到底谁才是最优（转换效果最好）的选择呢？接着我们就分别试试看。</p>
+<h4 id="用法-2"><a href="#用法-2" class="headerlink" title="用法"></a>用法</h4><p>  GifSki和FFmepg一样，支持直接从视频转换为GIF文件。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gifski -fps 10 -width 320 -o result.gif test.mp4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  上面的例子将“test.mp4”文件转换为GIF，最大分辨率为320像素，每秒10帧。</p>
+<p>  当然也和convert一样，支持将很多的PNG图片。按帧率生成GIF文件。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gifski -o result.gif *.png<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="效果对比"><a href="#效果对比" class="headerlink" title="效果对比"></a>效果对比</h3><p>  那么它们转换效果到底怎么样呢？我们对同一个视频（1920 × 1080）文件（27M）进行转换，看看转换之后是什么样。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ffmpeg -i test.mp4 -r 5 ffmpeg.gif
+ffmpeg -i test.mp4 -r 5  tmp/frame%04d.png
+gifski --width 1920 -o gifski.gif tmp/frame*.png
+convert -delay 10 -loop 0 tmp/frame*.png convert.gif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  转换之后会发现一个共性问题，无论哪一种方式转换的GIF文件，文件大小都会比原视频更大。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ray@MyDeepin:~/Videos/MyVideos/Screen Recordings$ ls -lh
+-rw-r--r-- 1 ray ray 433M 10月 22 12:50 convert.gif
+-rw-r--r-- 1 ray ray 150M 10月 22 12:42 ffmpeg.gif
+-rw-r--r-- 1 ray ray 200M 10月 22 12:45 gifski.gif
+-rw-r--r-- 1 ray ray  27M 10月 22 12:38 test.mp4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="GIF压缩"><a href="#GIF压缩" class="headerlink" title="GIF压缩"></a>GIF压缩</h3><p>  那么要怎么才能减少GIF文件的大小呢？一般从3个方面下手。</p>
+<ul>
+<li>图像分辨率大小</li>
+</ul>
+<p>  通过缩小图像的分辨率，可以在很大程度上减少最终GIF文件的大小，这也是最有效的方法。</p>
+<ul>
+<li>图像帧率</li>
+</ul>
+<p>  降低帧率是另一个减少GIF文件大小的方法，不过太低的帧率会让GIF的效果大打折扣。</p>
+<ul>
+<li>降低颜色通道与增加透明值</li>
+</ul>
+<p>  简单来说就是将颜色鲜艳程度降低、并适当增加透明值，这样图片中颜色数据大小就会下降，但是会明显影响GIF的显示效果。</p>
+<p>  如果前面2步都已无法再调整了，那么可通过convert的转换命令完成。</p>
+<p><code>convert result.gif -fuzz 10% -layers Optimize result.min.gif</code></p>
+<h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><p>  最后分享一个基于上述三方组件的Shell脚本。该脚本可自动将目录下的视频文件转换为GIF文件（同时保留未压缩与压缩的文件）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#!/bin/bash
+helpinfo() {
+    echo "Version: GIF Creator Tools 1.0.0"
+    echo "Usage: $0 [options ...] Video File Directory"
+    echo ""
+    echo "Video File Settings:"
+    echo "-w       video size scaling width"
+    echo "-r       set frame rate (Hz value, fraction or abbreviation)"
+    echo "GIF File Settings:"
+    echo "-f       colors within this distance are considered equal"
+    exit -1
+}
+createDirectories(){
+    if [ ! -d "$DSTPATH" ];then
+        mkdir -p "$DSTPATH"
+    fi
+    if [ ! -d "$TMPPATH" ];then
+        mkdir -p "$TMPPATH"
+    fi
+}
+convertgif(){
+    for FILE in `ls "$SRCPATH"/*.mp4 | tr " " "\?"`
+    do
+        FILENAME=`echo "$FILE"|awk -F "/" '{print $NF}'|awk -F "." '{print $1}'`
+        ffmpeg -i "$SRCPATH/$FILENAME.mp4" -r $RATE -vf scale=$WIDTH:-1 "$TMPPATH"/TMP_%04d.png
+        gifski -W $WIDTH -r 10 -o "$DSTPATH/$FILENAME.gifski.gif" "$TMPPATH"/TMP_*.png
+        convert -delay 10 -loop 0 "$TMPPATH"/TMP_*.png "$DSTPATH/$FILENAME.convert.gif"
+        rm -rf "$TMPPATH"/TMP_*.png
+        convert "$DSTPATH/$FILENAME.gifski.gif" -fuzz $FUZZ% -layers Optimize "$DSTPATH/$FILENAME.gifski.min.gif"
+        convert "$DSTPATH/$FILENAME.convert.gif" -fuzz $FUZZ% -layers Optimize "$DSTPATH/$FILENAME.convert.min.gif"
+    done
+    rm -rf "$TMPPATH"
+}
+
+setdefault(){
+    if ["$SRCPATH" = ""]; then
+        SRCPATH=`pwd`
+    fi
+    if ["$WIDTH" = ""]; then
+        WIDTH=800
+    fi
+    if ["$RATE" = ""]; then
+        RATE=5
+    fi
+    if ["$FUZZ" = ""]; then
+        FUZZ=10
+    fi
+}
+
+while getopts ':w:r:f:h' OPT; do
+    case $OPT in
+        w) WIDTH="$OPTARG";;
+        r) RATE="$OPTARG";;
+        f) FUZZ="$OPTARG";;
+        h) helpinfo;;
+    esac
+done
+shift $(($OPTIND - 1))
+SRCPATH=$*
+setdefault
+DSTPATH="$SRCPATH/gif"
+TMPPATH="$SRCPATH/tmp"
+createDirectories
+convertgif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：基于Linux命令行实现将视频文件快速转GIF文件</li>
+        <li>本文作者：Ray</li>
+        <li>创建时间：2022-10-23 20:00:00</li>
+        <li>
+            本文链接：https://www.ray0728.cn/2022/10/23/221023-基于Linux命令行实现快速视频转GIF/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Linux/">#Linux</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/FFMpeg/">#FFMpeg</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Shell/">#Shell</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Convert/">#Convert</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/10/24/221024-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%BA%94)-%E6%9C%89%E6%95%88%E7%AD%9B%E9%80%89/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">科学摸鱼之Excel小技巧(五) 针对合并单元格的有效筛选</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/10/17/221016-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E5%9B%9B)-%E5%8D%95%E5%85%83%E6%A0%BC%E6%A0%BC%E5%BC%8F/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">科学摸鱼之Excel小技巧(四) 单元格格式更智能</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'x7EKPJccSUW4oG8rk1IuNtoL-9Nh9j0Va',
+                    appKey: 'srEmquGguCjDuK4uW4294jOr',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '请不要见怪，请不要见外。',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Ray';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Ray</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">蜀ICP备2021011938号</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%A8%E7%BA%BF%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">使用在线转换工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">使用软件工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">使用三方组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FFmpeg"><span class="nav-number">3.1.</span> <span class="nav-text">FFmpeg</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">3.1.1.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.1.2.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert"><span class="nav-number">3.2.</span> <span class="nav-text">Convert</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%B3%95-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">3.2.2.</span> <span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-1"><span class="nav-number">3.2.3.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GifSki"><span class="nav-number">3.3.</span> <span class="nav-text">GifSki</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%B3%95-2"><span class="nav-number">3.3.1.</span> <span class="nav-text">用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%AF%B9%E6%AF%94"><span class="nav-number">3.4.</span> <span class="nav-text">效果对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GIF%E5%8E%8B%E7%BC%A9"><span class="nav-number">3.5.</span> <span class="nav-text">GIF压缩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC"><span class="nav-number">4.</span> <span class="nav-text">脚本</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

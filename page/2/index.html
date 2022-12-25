@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="向着财富与自由前进吧">
+    <meta name="author" content="Ray">
+    
+    <title>
+        
+        Ray的日记本
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://arts.ray0728.cn/images/2021/08/01/logo.png","favicon":"https://arts.ray0728.cn/images/2021/08/01/logo.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/mybg.svg","description":"格物 致知 诚意 正心"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Ray的日记本
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class="active"
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/"
+                            >
+                                CODE
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="active"
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/">CODE</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="home-content-container fade-in-down-animation">
+    <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/10/10/221010-%E8%AE%A9WebSocket%E6%94%AF%E6%8C%81Oauth2-TOKEN%E9%AA%8C%E8%AF%81%E7%9A%84%E5%B0%9D%E8%AF%95/">
+                        让WebSocket支持Oauth2 TOKEN验证的尝试
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <p>​        很早的时候在下用一种比较简陋的方式利用WebSocket实现了在线Selenium执行功能<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2021/06/20/%E6%90%AD%E5%BB%BA%E5%9C%A8%E7%BA%BFSelenium%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83/">《一》<i class="fas fa-external-link-alt"></i></a>、<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2021/06/24/%E6%90%AD%E5%BB%BA%E5%9C%A8%E7%BA%BFSelenium%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%EF%BC%88%E4%BA%8C%EF%BC%89/">《二》<i class="fas fa-external-link-alt"></i></a>。大概效果如下：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2021/06/26/Screenshot_20210622_232534_com.huawei.browser.jpg" alt="codeonline"></p>
+<p>​        其实实现原理挺粗暴的，服务端开启一个WebSocket服务端，一直处于监听状态。浏览器利用js脚本发起连接，并将内容通过WebSocket发送给服务端。只要发送的格式符合服务端的定义，理论上讲，服务端会<strong>无条件执行任何请求</strong>。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/10/59136ae0da0391e7329f8d9d0b918f8e.png" alt="59136ae0da0391e7329f8d9d0b918f8e.png"></p>
+<p>​        虽然过去了这么久，但是一想到服务器上还运行这么危险的服务，我便久久无法入眠（其实并没有）。趁着这次国庆大假，在家又折腾了一下我的在线代码执行服务，最主要的目标就是让websocket能更安全的运行。</p>
+<p>​        怎么才能更安全的运行呢？当然要利用小云上已运行的KeyCloak所提供的OAuth2认证啦。</p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Oct 10 2022 16:00:00 GMT+0000">2022-10-10</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Docker/">Docker</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/KeyCloak/">KeyCloak</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/Nginx/">Nginx</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/Websocket/">Websocket</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/Spring-Security/">Spring Security</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/10/10/221010-%E8%AE%A9WebSocket%E6%94%AF%E6%8C%81Oauth2-TOKEN%E9%AA%8C%E8%AF%81%E7%9A%84%E5%B0%9D%E8%AF%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/08/04/220804-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%BA%8C)/">
+                        科学摸鱼之Excel小技巧(二)
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/07/31/logo.png" alt="logo.png" style="zoom:50%;">
+
+<p>  接<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2022/07/31/%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%B8%80)/">上一期<i class="fas fa-external-link-alt"></i></a>我们分享了几个关于EXCEL的使用小技巧，本期我们继续聊一聊EXCEL其它看上去很酷炫的操作。</p>
+<p>  本期内容同样是天选打工人熬夜整理出来的，吐血推荐。</p>
+<p>  下面就开始我们今天的<strong>摸鱼小技巧</strong>吧。</p>
+<hr>
+<h2 id="多级菜单"><a href="#多级菜单" class="headerlink" title="多级菜单"></a>多级菜单</h2><p>  EXCEL不仅仅只是单纯的录入数据，还可以变得非常“智能”的自动选择录入的内容，比如这样：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/08/03/71df79a21b61ccb74725aeca0679ed37.gif" alt="员工信息录入"></p>
+<p>  这是一个常见的员工登记表格，不同的员工在不同的部门下工作。假设这家公司共有三级部门，每个一级部门下又有各自不同的二级乃至三级部门，在录入的时候二三级部门会跟随其上一级部门变化而变化。</p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Aug 04 2022 17:00:00 GMT+0000">2022-08-04</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/office/">office</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/excel/">excel</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/08/04/220804-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%BA%8C)/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/31/220731-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%B8%80)/">
+                        科学摸鱼之Excel小技巧(一)
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/07/31/logo.png" alt="logo.png" style="zoom:50%;">
+
+<p>  做为一名天选打工人，即便在当前疫情突然加重，需要居家办公的今天，仍然要在家处理各种各样的表格，为老板们准备各种各样的汇报材料。正因为居家办公不用上下班打卡了，所以老板们似乎也觉得7x24小时待命变得合情合理，唉，生活真是太难了。</p>
+<p>  在不断与Office三剑客爱恨纠葛之后，慢慢也掌握了一些如何<strong>高效、快捷、省时省力</strong>的完成各种<strong>数据录入、数据整理、数据呈现</strong>的奇技婬巧，天选打工之人熬夜整理出各种<strong>高频、常用、一看就会</strong>小技巧都汇总在这里，吐血推荐。</p>
+<p>  下面就开始我们今天的<strong>摸鱼小技巧</strong>吧。</p>
+<hr>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Jul 31 2022 22:00:00 GMT+0000">2022-07-31</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/office/">office</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/excel/">excel</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/07/31/220731-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%B8%80)/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/05/23/220523-%E4%B8%80%E6%AC%A1%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E6%A0%B8%E5%8D%87%E7%BA%A7%E4%B9%8B%E6%97%85/">
+                        一次云服务器内核升级之旅
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <p>  最近突发奇想，想尝试在本就不富裕的小云上搭建一个云手机平台。于是在github上不停的搜关键字（这里吐槽一下gitee的搜索功能做得还是太弱了），终于让我找到了两个不错的开源项目，<a class="link" target="_blank" rel="noopener" href="https://github.com/anbox/anbox/blob/master/README.md">anbox<i class="fas fa-external-link-alt"></i></a>和<a class="link" target="_blank" rel="noopener" href="https://github.com/remote-android/redroid-doc">redroid<i class="fas fa-external-link-alt"></i></a>。</p>
+<p>  我们都知道Android是分层的，按语言可简单分为Java和Native，按类别可分为application和service，他们之间的通信几乎都是利用ashmem或binder完成。而这2个功能又需要内核支持。所以不管是那种容器（容器与主机共用同一个内核）方案，内核都需要支持ashmem和binder。遗憾的是我的小云运行的是CentOS7，内核是3.10。默认不开启ashmem和binder功能的。所以只有一条路可走，手动编译适合的内核（yum虽能安装高版本内核，但是不确认是否已开启这2个特性）。</p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon May 23 2022 08:20:00 GMT+0000">2022-05-23</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Kernel/">Kernel</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/05/23/220523-%E4%B8%80%E6%AC%A1%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E6%A0%B8%E5%8D%87%E7%BA%A7%E4%B9%8B%E6%97%85/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/04/03/220403-%E4%B8%80%E6%AC%A1%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84%E5%BC%80%E5%8F%91%E5%B0%9D%E8%AF%95/">
+                        一次小游戏的开发尝试
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <p>  谁能想到闲来无事做的零玩家游戏，居然成了组内浏览器性能测试工具？这是怎么回事呢？</p>
+<p>  这事儿还得从我在github上瞎逛，发现了一个用JScript配合Canvas实现<a class="link" target="_blank" rel="noopener" href="https://wiki.swarma.org/index.php/%E5%BA%B7%E5%A8%81%E7%9A%84%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F_Conway's_Game_of_Life">康威生命游戏<i class="fas fa-external-link-alt"></i></a>的<a class="link" target="_blank" rel="noopener" href="https://github.com/anm/HTML5-Game-of-Life">网页小动画<i class="fas fa-external-link-alt"></i></a>说起。</p>
+<p>  那个时候还不了解康威生命游戏是个什么鬼，第一次看见的时候只觉得这玩意儿有点神奇啊，居然能自主进化成不同的形态。加上被原作者一句“这玩意儿很容易添加别的动画规则”给引诱了。</p>
+<blockquote>
+<p>It would not be hard to add other rule sets so it can be used to run other automata. It’s my platform for learning and playing with some web technologies. </p>
+</blockquote>
+<p>  虽然前半句说不难添加新规则，但后半句中却提到了「learning」，果然他的代码风格一言难尽啊。</p>
+<p>  肝了几天才把原始代码按逻辑重新进行了拆分和封装。在这过程中，也顺手尝试了好几种不同的动画效果，来看看历代的变化吧。</p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Apr 03 2022 23:00:00 GMT+0000">2022-04-03</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/JQuery/">JQuery</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/BootStrap/">BootStrap</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/04/03/220403-%E4%B8%80%E6%AC%A1%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84%E5%BC%80%E5%8F%91%E5%B0%9D%E8%AF%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/03/19/220319-Spring_resource_server/">
+                        Spring极简资源服务器
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <p><font color="red">-本文为填坑文-</font></p>
+<p>　　很早之前我在<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2021/10/27/gatway%E4%BD%BF%E7%94%A8Security%E9%80%82%E9%85%8DKeycloak/">《Spring cloud gatway适配Keycloak》<i class="fas fa-external-link-alt"></i></a>中给自己留了一个坑。</p>
+<blockquote>
+<p>可以看出token中已包含有用户相关信息，可进一步传递给下游，作为权限判断输入，符合上文中的预期。好了，用户登录有了，剩下的就是在资源服务器（即下游微服务）上实现权限验证了。</p>
+<p>  后面再单独写一章吧，因为资源服务器的实现略有不同。</p>
+</blockquote>
+<p>　　其实能鉴权的资源服务器很早就实现了，不过因为最近在愉快的玩儿其他有意思的东东，没能顾上填坑，正好最近天气不错，那就把它填了吧。</p>
+<p>　　先来看看效果。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/03/16/Video_20220316_082232_316.gif"></p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Mar 19 2022 19:40:00 GMT+0000">2022-03-19</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Spring/">Spring</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/KeyCloak/">KeyCloak</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/03/19/220319-Spring_resource_server/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/02/25/220225-python_photo_importer/">
+                        基于Python的相片导入工具
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <p>  最近没顾上继续折腾 Spring Cloud，而是和 Python 相爱相杀。唉，一开始还小瞧了小小的 Python，没想到还真费了我不少劲呢，前前后后差不多搞了快 2 周，做出来的东西才稍微像那么回事。</p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Feb 25 2022 11:30:00 GMT+0000">2022-02-25</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Python/">Python</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/02/25/220225-python_photo_importer/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/01/29/220129-%E4%BA%91%E4%B8%8A%E7%BC%96%E8%AF%91%E5%99%A8/">
+                        云上编译器 随时随地编代码
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <p>  在<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2022/01/13/SpringCloudConfig/">《Spring Cloud配置服务》<i class="fas fa-external-link-alt"></i></a>中提到本人在小云上瞎折腾，奈何学艺不精，折腾得挺费劲的，为了让折腾变得轻松点，上线了配置服务一事。其实除了折腾配置参数之外，代码的修改也是不可避免的事儿（虽然常常只是增删一句代码）。比如跨域访问资源的时候会被CSRF拦截，为了验证功能，就不得不加上<code>.csrf().disable()</code>试试效果。为了能进一步让我的折腾之路走得更从容，我开始寻找轻量化、免费的CI环境。</p>
+<p>  大约是几年前的时候吧，那时候用Github做代码仓库，就顺手白嫖了Travis CI的资源，他的用法很简单，在代码中加入.travis.yml配置文件（可参考<a class="link" target="_blank" rel="noopener" href="https://gitee.com/ray0728/authserver/blob/master/.travis.yml">这个<i class="fas fa-external-link-alt"></i></a>），这个文件作用是告诉Travis CI需要做什么，然后在Travis CI控制面板中添加Github账户公钥即可。当代码提交到Github代码仓库的master分支以后，会被自动编译成jar包，然后打包进容器，并进一步自动发布到 Docker hub上，而云端只需要更新容器即可实现部署（注1：其实Travis CI可以再调用云端接口，实现真正全自动部署，只不过当时购买的菊厂弹性服务器并未开放相关接口。注2：其实也有办法，Travis CI 推送完DockerHub之后，向Github指定仓库再提交一个issue，利用Github的WebHook向云端发起POST请求，从而触发Docker更新，只不过这条路也太折腾了。）<br>。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/01/26/u17511744642555063419fm26fmtauto.jpg" alt="travis ci"></p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Jan 29 2022 17:30:00 GMT+0000">2022-01-29</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Docker/">Docker</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/SpringCloud/">SpringCloud</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/01/29/220129-%E4%BA%91%E4%B8%8A%E7%BC%96%E8%AF%91%E5%99%A8/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/01/13/220113-SpringCloudConfig/">
+                        Spring Cloud配置服务
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <p>  这一段时间都在小云上折腾微服务的事儿，一边愉快的加着新功能，一边苦逼的调试着参数。也许这就是痛并快乐着吧。所幸Spring  Cloud是一款优秀的服务框架。</p>
+<blockquote>
+<p>它利用Spring Boot的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等，都可以用Spring Boot的开发风格做到一键启动和部署。</p>
+</blockquote>
+<p>  最大的特点就是代码与配置相互独立，开箱即用（写入极少代码），通过更改配置就可以调整功能细节，我这么努力吹Spring Cloud，社区不考虑请我吃饭吗？哈哈哈哈</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/01/04/16655322702792683390.gif" alt="恰饭饭"></p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jan 13 2022 11:46:00 GMT+0000">2022-01-13</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Docker/">Docker</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/SpringCloud/">SpringCloud</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/01/13/220113-SpringCloudConfig/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/12/13/211213-%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84Eureka/">
+                        不一样的服务发现Eureka
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <p>  在<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2021/11/07/%E6%9C%89%E4%BA%86%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%AF%E4%BB%A5%E5%81%9A%E4%BB%80%E4%B9%88/">《有了云服务器能干什么》<i class="fas fa-external-link-alt"></i></a>一文中曾讲到从小小云有限的资源中扒拉了一小块来折腾微服务，在连肝数日之后，终于有了基本的微服务雏形（有SSO、有权限控制、有跨服务器资源访问）。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2021/12/08/SVID_20211208_084320_1.gif" alt="demo"></p>
+<p>  接下来会用一个系列来记录微服务折腾的过程。本文主要记录服务发现Eureka的折腾之路。</p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Dec 13 2021 09:00:00 GMT+0000">2021-12-13</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Docker/">Docker</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/SpringCloud/">SpringCloud</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2021/12/13/211213-%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84Eureka/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+    </ul>
+
+    <div class="home-paginator">
+        <div class="paginator">
+    
+        <a class="prev btn"
+           href="/"
+        >上一页</a>
+    
+
+    
+        <a class="next btn"
+           href="/page/3/"
+        >下一页</a>
+    
+</div>
+
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Ray</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">蜀ICP备2021011938号</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

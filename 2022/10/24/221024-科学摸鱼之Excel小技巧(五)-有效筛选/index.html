@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="向着财富与自由前进吧">
+    <meta name="author" content="Ray">
+    
+    <title>
+        
+            科学摸鱼之Excel小技巧(五) 针对合并单元格的有效筛选 |
+        
+        Ray的日记本
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://arts.ray0728.cn/images/2021/08/01/logo.png","favicon":"https://arts.ray0728.cn/images/2021/08/01/logo.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/mybg.svg","description":"格物 致知 诚意 正心"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Ray的日记本
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/"
+                            >
+                                CODE
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/">CODE</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">科学摸鱼之Excel小技巧(五) 针对合并单元格的有效筛选</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Ray</span>
+                        
+                            <span class="author-label">CTO</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-24 13:00:00</span>
+        <span class="mobile">2022-10-24 13:00</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Office/">Office</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/office/">office</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/excel/">excel</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/07/31/logo.png" alt="logo.png" style="zoom:50%;">
+
+<p>  接<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2022/10/17/221016-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E5%9B%9B)-%E5%8D%95%E5%85%83%E6%A0%BC%E6%A0%BC%E5%BC%8F/">上一期<i class="fas fa-external-link-alt"></i></a>我们分享了几个关于EXCEL的使用小技巧，本期我们继续聊一聊Excel其它看上去很酷炫的操作。</p>
+<p>  本期内容同样是天选打工人熬夜整理出来的，吐血推荐。</p>
+<p>  下面就开始我们今天的<strong>摸鱼小技巧</strong>吧。</p>
+<hr>
+<p>  相信Excel的<strong>筛选功能</strong>一定是各位打工人用得最多的功能之一。我们常常利用筛选功能从数据表中快速过滤出所需要的行。但是当<strong>筛选</strong>遇上<strong>合并单元格</strong>的时候，一切都变得不太一样了。今天就跟大家分享一个<strong>关于合并单元格的筛选</strong>小技巧。</p>
+<span id="more"></span>
+
+<p>  我们在日常工作中为了让数据表更易读、更简介，不可避免会将部分单元格进行合并（合并后更符合日常阅读习惯），但是合并后带来的问题是条件筛选会出现问题，无法正确筛选合并单元格。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/24/gifski931519315ad06ea3.gif" alt="无法正确筛选合并单元格"></p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>  Excel筛选功能是基于单元格的值（或颜色）进行筛选。对于<strong>合并单元格，仅左上角的值会保留，其余单元格均为空值。</strong><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/24/c05e44f796298fea64c149f4003190c6.jpg" alt="合并单元格实际值"></p>
+<p>  因此<strong>筛选</strong>的时候，Excel无法将空值与筛选条件匹配上，因此筛选结果无效。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>  既然知道问题的根因，那么解决的思路就很明确了，让单元格都拥有正确的数值。</p>
+<h3 id="方案一：取消合并单元格，每一个单元格都保存正确的数据。"><a href="#方案一：取消合并单元格，每一个单元格都保存正确的数据。" class="headerlink" title="方案一：取消合并单元格，每一个单元格都保存正确的数据。"></a>方案一：取消合并单元格，每一个单元格都保存正确的数据。</h3><p>  该方案比较容易理解，其实就是舍弃了合并单元格。让工作表回到最简单的格式上。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/24/gifski.gif" alt="取消合并单元格"></p>
+<p>  但是这个方案舍弃了合并单元格，<strong>破坏了表格原本的阅读格式</strong>。</p>
+<h3 id="方案二：利用格式刷，即保留合并单元格，也能正确筛选"><a href="#方案二：利用格式刷，即保留合并单元格，也能正确筛选" class="headerlink" title="方案二：利用格式刷，即保留合并单元格，也能正确筛选"></a>方案二：利用格式刷，即保留合并单元格，也能正确筛选</h3><p>  <strong>格式刷</strong>同样是Excel中一个高频使用功能，其本质是对格式的复制和粘贴。</p>
+<blockquote>
+<p>使用格式刷可以快速将相同的格式（如颜色、字体样式和大小或边框样式）应用于多个文本或图形。使用格式刷，可以从一个对象复制所有格式并将其应用到另一个对象。</p>
+</blockquote>
+<p>  因此我们可以结合方案一，再利用格式刷将合并后单元格的格式复制给单元格。这样既可以筛选，也不会破坏表格原本的格式。</p>
+<p>  上面的描述比较抽象，我们直接看看操作步骤吧。</p>
+<h4 id="STEP-1-先将合并单元格的格式复制到新的单元格上，作为格式备份。"><a href="#STEP-1-先将合并单元格的格式复制到新的单元格上，作为格式备份。" class="headerlink" title="STEP 1 先将合并单元格的格式复制到新的单元格上，作为格式备份。"></a>STEP 1 先将合并单元格的格式复制到新的单元格上，作为格式备份。</h4><p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/24/1.gifski.gif" alt="复制合并单元格格式"></p>
+<h4 id="STEP-2-对单元格进行填充，确保所有单元格都有正确的数据。"><a href="#STEP-2-对单元格进行填充，确保所有单元格都有正确的数据。" class="headerlink" title="STEP 2 对单元格进行填充，确保所有单元格都有正确的数据。"></a>STEP 2 对单元格进行填充，确保所有单元格都有正确的数据。</h4><p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/24/2.gifski.gif" alt="单元格填充"></p>
+<p>  单元格填充，这里用了两个小技巧。<strong>定位条件</strong>和<strong>函数填充</strong>，下面简单分享一下这两个小技巧。</p>
+<h5 id="定位条件"><a href="#定位条件" class="headerlink" title="定位条件"></a>定位条件</h5><p>  定位条件，可以让我们快速地在Excel工作表中找出所有符合条件的单元格，并将输入焦点定位其上。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/24/4ec0753eacbac0ee4c530a636243f146.jpg" alt="定位条件"></p>
+<blockquote>
+<p>使用 “转到 “命令快速查找并选择包含特定类型的数据（如公式）的所有单元格。 此外， 使用”转到”仅查找满足特定条件的单元格，例如数据或格式 工作表 最后一个单元格。</p>
+</blockquote>
+<p>  定位条件有2个入口可进入。快捷键<kbd>F5</kbd>以及开始菜单中的<kbd>查找和选择</kbd>。</p>
+<ul>
+<li>快捷建F5<br>  按下<kbd>F5</kbd>后,会自动弹出<strong>定位</strong>选项框，其左下角就是<strong>定位条件</strong>入口。</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/24/d7c8701c4f023a3e16826eabc187fff5.jpg" alt="快捷键进入"></p>
+<ul>
+<li>菜单进入<br>  在<kbd>查找和选择</kbd>的下拉菜单中，也可直接打开<strong>定位条件</strong>选项框。</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/24/2050c17f679e96dcbe6bb2f91e4c9f3d.jpg" alt="菜单"></p>
+<p>  在本例中，我们选择<strong>空值</strong>进行条件定位。定位结果有多个，输入焦点落在所有单元格中最左上角的一个。</p>
+<h5 id="函数填充"><a href="#函数填充" class="headerlink" title="函数填充"></a>函数填充</h5><p>  在数据量小的情况，完全可以利用拖动的方式对单元格进行数据复制。但是如果数据量很大，或者需要填充的单元格并不是相邻分布，那么通过手动拖动的方式进行复制数据会变成很麻烦的一件事。这个时候我们就需要用到简单的<strong>函数填充</strong>。</p>
+<p>  结合<strong>定位条件</strong>首先让Excel选中选区内所有的<strong>空值</strong>，注意，当Excel完成定位后，<strong>不要点击Excel上任何单元格</strong>，而是<strong>在编辑栏中直接输入</strong>=，并用键盘上的<strong>光标方向键（上下左右键）去选择</strong>希望复制数据的单元格。这个时候我们就输入了一个简单的引用函数，比如<kbd>=F3</kbd>。</p>
+<p>  这个函数当前仅作用于定位结果中的第一个单元格（最左上角的单元格）。为了让其它单元格效仿的引用函数，使用<kbd>CTRL+ENTER</kbd>，进行函数复制。注意，这里的复制<strong>并不是简单的将函数表达式复制给其它单元格，还复制了单元格之间的位置关系</strong>，举个例子。</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">C</th>
+<th align="center">D</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center">需复制单元格</td>
+<td align="center">数据1</td>
+<td align="center">数据2</td>
+<td align="center">数据3</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">=D1</td>
+<td align="center">a</td>
+<td align="center">1</td>
+<td align="center">上</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center">b</td>
+<td align="center">2</td>
+<td align="center">下</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center">c</td>
+<td align="center">3</td>
+<td align="center">左</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"></td>
+<td align="center">d</td>
+<td align="center">4</td>
+<td align="center">右</td>
+</tr>
+</tbody></table>
+<p>  假设有上表所示的工作表，通过条件定位选中了空白区域A1、A2、A3、A4。此时输入<kbd>=D1</kbd>，实际作用于结果中最左上角的单元格，即A1。然后使用<kbd>CTRL+ENTER</kbd>进行了函数复制。</p>
+<p>  那么对于A1来说，函数表达式中的D1，相较于A1单元格，位置是<strong>同一行向右移动3列</strong>。所以对于A2，函数表达式就变成了<kbd>=D2</kbd>。因为从A2出发，同一行向右移动3列，就是D2了。对于A3以及A4可以以此类推。</p>
+<h4 id="STEP-3-利用格式刷将备份的单元格格式粘贴回需要筛选的区域"><a href="#STEP-3-利用格式刷将备份的单元格格式粘贴回需要筛选的区域" class="headerlink" title="STEP 3 利用格式刷将备份的单元格格式粘贴回需要筛选的区域"></a>STEP 3 利用格式刷将备份的单元格格式粘贴回需要筛选的区域</h4><p>  &nbsp;现在单元格的数据已准备就绪，剩下的就是将合并单元格格式利用格式刷重新复制回来。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/24/3.gifski.gif" alt="恢复合并单元格格式"></p>
+<p>  至此我们就能让工作表支持合并单元格的筛选了，是不是又可以提前下班回家了呢？</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>  <strong>条件定位</strong>以及<strong>格式刷</strong>这些看似简单的功能，组合在一起之后，会让我们的表格不仅好看还更好用，当然Excel的小技巧不止于此，工作中也会遇到很多让人困惑的操作，比如如何让透视表更聪明一点、如何给工作表增加图形、图标，这些在后面的摸鱼小技巧中再跟大家总结吧。</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：科学摸鱼之Excel小技巧(五) 针对合并单元格的有效筛选</li>
+        <li>本文作者：Ray</li>
+        <li>创建时间：2022-10-24 13:00:00</li>
+        <li>
+            本文链接：https://www.ray0728.cn/2022/10/24/221024-科学摸鱼之Excel小技巧(五)-有效筛选/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/office/">#office</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/excel/">#excel</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/10/25/221026-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E5%85%AD)-%E8%B6%85%E7%BA%A7%E7%AD%9B%E9%80%89/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">科学摸鱼之Excel小技巧(六) 高级筛选</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/10/23/221023-%E5%9F%BA%E4%BA%8ELinux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AE%9E%E7%8E%B0%E5%BF%AB%E9%80%9F%E8%A7%86%E9%A2%91%E8%BD%ACGIF/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">基于Linux命令行实现将视频文件快速转GIF文件</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'x7EKPJccSUW4oG8rk1IuNtoL-9Nh9j0Va',
+                    appKey: 'srEmquGguCjDuK4uW4294jOr',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '请不要见怪，请不要见外。',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Ray';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Ray</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">蜀ICP备2021011938号</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A%E5%8F%96%E6%B6%88%E5%90%88%E5%B9%B6%E5%8D%95%E5%85%83%E6%A0%BC%EF%BC%8C%E6%AF%8F%E4%B8%80%E4%B8%AA%E5%8D%95%E5%85%83%E6%A0%BC%E9%83%BD%E4%BF%9D%E5%AD%98%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E3%80%82"><span class="nav-number">2.1.</span> <span class="nav-text">方案一：取消合并单元格，每一个单元格都保存正确的数据。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%9A%E5%88%A9%E7%94%A8%E6%A0%BC%E5%BC%8F%E5%88%B7%EF%BC%8C%E5%8D%B3%E4%BF%9D%E7%95%99%E5%90%88%E5%B9%B6%E5%8D%95%E5%85%83%E6%A0%BC%EF%BC%8C%E4%B9%9F%E8%83%BD%E6%AD%A3%E7%A1%AE%E7%AD%9B%E9%80%89"><span class="nav-number">2.2.</span> <span class="nav-text">方案二：利用格式刷，即保留合并单元格，也能正确筛选</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#STEP-1-%E5%85%88%E5%B0%86%E5%90%88%E5%B9%B6%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%A4%8D%E5%88%B6%E5%88%B0%E6%96%B0%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E4%B8%8A%EF%BC%8C%E4%BD%9C%E4%B8%BA%E6%A0%BC%E5%BC%8F%E5%A4%87%E4%BB%BD%E3%80%82"><span class="nav-number">2.2.1.</span> <span class="nav-text">STEP 1 先将合并单元格的格式复制到新的单元格上，作为格式备份。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STEP-2-%E5%AF%B9%E5%8D%95%E5%85%83%E6%A0%BC%E8%BF%9B%E8%A1%8C%E5%A1%AB%E5%85%85%EF%BC%8C%E7%A1%AE%E4%BF%9D%E6%89%80%E6%9C%89%E5%8D%95%E5%85%83%E6%A0%BC%E9%83%BD%E6%9C%89%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E3%80%82"><span class="nav-number">2.2.2.</span> <span class="nav-text">STEP 2 对单元格进行填充，确保所有单元格都有正确的数据。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E4%BD%8D%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">定位条件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%A1%AB%E5%85%85"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">函数填充</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STEP-3-%E5%88%A9%E7%94%A8%E6%A0%BC%E5%BC%8F%E5%88%B7%E5%B0%86%E5%A4%87%E4%BB%BD%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%A0%BC%E5%BC%8F%E7%B2%98%E8%B4%B4%E5%9B%9E%E9%9C%80%E8%A6%81%E7%AD%9B%E9%80%89%E7%9A%84%E5%8C%BA%E5%9F%9F"><span class="nav-number">2.2.3.</span> <span class="nav-text">STEP 3 利用格式刷将备份的单元格格式粘贴回需要筛选的区域</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结束语</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

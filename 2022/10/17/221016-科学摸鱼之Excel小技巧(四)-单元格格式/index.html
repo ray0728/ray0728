@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="向着财富与自由前进吧">
+    <meta name="author" content="Ray">
+    
+    <title>
+        
+            科学摸鱼之Excel小技巧(四) 单元格格式更智能 |
+        
+        Ray的日记本
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://arts.ray0728.cn/images/2021/08/01/logo.png","favicon":"https://arts.ray0728.cn/images/2021/08/01/logo.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/mybg.svg","description":"格物 致知 诚意 正心"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Ray的日记本
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/"
+                            >
+                                CODE
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/">CODE</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">科学摸鱼之Excel小技巧(四) 单元格格式更智能</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Ray</span>
+                        
+                            <span class="author-label">CTO</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-17 13:00:00</span>
+        <span class="mobile">2022-10-17 13:00</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Office/">Office</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/office/">office</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/excel/">excel</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/07/31/logo.png" alt="logo.png" style="zoom:50%;">
+
+<p>  接<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2022/10/13/221012-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%B8%89)-%E6%88%91%E7%9A%84%E8%A1%A8%E6%A0%BC%EF%BC%8C%E4%BD%A0%E5%88%AB%E5%8A%A8/">上一期<i class="fas fa-external-link-alt"></i></a>我们分享了几个关于EXCEL的使用小技巧，本期我们继续聊一聊Excel其它看上去很酷炫的操作。</p>
+<p>  本期内容同样是天选打工人熬夜整理出来的，吐血推荐。</p>
+<p>  下面就开始我们今天的<strong>摸鱼小技巧</strong>吧。</p>
+<hr>
+<p>  Excel日常使用中，免不了会输入各种格式的内容，比如时间、编号、金额等等。但是却常常遇到实际显示效果与期望相差甚远的情况。比如下面这样：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/16/1793a8e13dff75dd0694130809181041.jpg" alt="单元格自动转换.jpg"></p>
+<p>  根本原因在于Excel非常“聪明”的替我们做了一系列的决定，将一些了它自以为了解的单元格式都做了<strong>自动转换</strong>。可这样的转换大多时候都违反了用户原本的意志，实在让人头大。不过如果能有效控制单元格的格式，倒是真的能显著提升使用者的效率，今天就跟大家分享关于<strong>单元格格式</strong>的几个小技巧吧。</p>
+<span id="more"></span>
+<h3 id="自动添加前（后）缀"><a href="#自动添加前（后）缀" class="headerlink" title="自动添加前（后）缀"></a>自动添加前（后）缀</h3><p>  有时候我们会批量输入相同格式的数据内容，比如都带有相同的前（后）缀。假设我们在录入员工信息的时候需要录入员工的工号信息，并且工号信息都带有一个固定的前缀RID，比如某人的工号为RID-123456我们当然可以直接输入，比如这样：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/16/1603d9041807636043e451bd485c232f.jpg" alt="手动输入"></p>
+<p>  但是我们也可以这样设置单元格格式，让单元格自动添加前缀RID。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/16/ed454920ec00f21d52233b90c74fc215.jpg" alt="前缀单元格格式"></p>
+<p>  设置后，单元格会自动在输入的内容前加上RID前缀。当然如果要设置后缀也可以用同样的方法。效果如下：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/16/eb491f8652eba99cd34ac93c33c22c98.jpg" alt="效果"></p>
+<h3 id="自动格式化输入内容"><a href="#自动格式化输入内容" class="headerlink" title="自动格式化输入内容"></a>自动格式化输入内容</h3><p>  不过有时候我们需要录入的数据并不是简单的有一个固定前缀或后缀。而是具备更复杂的格式。比如我们录入手机电话号码的时候，希望能自动根据号码位数进行分割，一方面更容易阅读另一方面也更容易记忆。假设我们想将11位的手机号码按照XXX-XXXX-XXXX的格式进行录入该怎么做呢？</p>
+<p>  在设置之前，需要先了解一个简单的小常识，<strong>Excel中的占位符</strong>。占位符这个概念应该是来源于软件编程，是指在位数不够的情况下，用指定的字符填充空白区域，使得最终输出的结果符合预期设计的格式。是不是有点生硬、拗口，不好理解，没关系，我们举个例子。</p>
+<p>  比如，需要输出一个固定的4位数，且在输入位数不足的情况下，用0进行占位。即输入123，实际输出为0123，此处的0即为占位符。</p>
+<p>  在Excel中有2种占位符，0和#，<strong>占位符仅对数字有效</strong>。</p>
+<h4 id="占位符0"><a href="#占位符0" class="headerlink" title="占位符0"></a>占位符0</h4><p>  如果输入数字的位数足够，则显示输入的数字，如果输入的位数不够，会用0进行补位，并显示在单元格中。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/16/0afb8615df7544c71.jpg" alt="0占位符"></p>
+<p>  如果输入1234567890，则会在数字前补充1个0，以便位数达到11位。效果如下：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/16/0.jpg" alt="效果"></p>
+<h4 id="占位符"><a href="#占位符" class="headerlink" title="占位符#"></a>占位符#</h4><p>  如果输入数字的位数足够，则显示输入的数字，如果输入的位数不够，会用0进行补位（<strong>但是不会显示无意义的0</strong>），并显示在单元格中。</p>
+<p>  所谓无意义的0是指，不会影响数字大小的0，比如0123实际等于123，再如123.00实际等于123。这些0都是无意义的0，如果使用**#占位符**，则均不会显示。比如我们这样设置：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/16/5022a5ccf235627d58bf1972960aadb4.jpg" alt="#占位符"></p>
+<p>  虽然位数不够11位，但是仍然不会在前补充0，效果如下：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/16/f928a4ffd1f98afd8524f6ea147ef811.jpg" alt="效果"></p>
+<h3 id="自动隐藏输入内容"><a href="#自动隐藏输入内容" class="headerlink" title="自动隐藏输入内容"></a>自动隐藏输入内容</h3><p>  有时候，我们希望对单元格内容做些快速且简单的隐藏，比如在跟大家介绍员工信息的时候，希望能把职级信息隐藏。这个时候当然可以通过单元格格式中的隐藏选项来实现这个效果。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/17/cfcecf3f410c08bda1bb06042afa4683.jpg" alt="保护-隐藏选项"></p>
+<p>  不过该隐藏选项<strong>必须在使用了工作表保护的前提下才会生效</strong>。有兴趣的小伙伴可以自己试试看，效果还是挺好的。</p>
+<p>  不过今天的主题可是单元格格式呢，所以我们来试试看另一种方式隐藏吧。在<strong>设置单元格格式</strong>中选择<strong>自定义</strong>，填入<kbd>;;;</kbd>，注意，这里是英文的<kbd>;</kbd>。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/17/895ac266d019c9a263c3de5f76f60ac4.jpg" alt="隐藏格式"></p>
+<p>  效果如下，能看到单元格中已不显示内容，但是点击选中后，会在编辑框中看到真实的数据。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/17/1af7d92452b7779bc1d492b0c87e1ef8.jpg" alt="效果"></p>
+<p>  这里需要简单介绍下<kbd>;</kbd>的含义，它其实表示了单元格中4种数据的显示方式，定义如下：</p>
+<blockquote>
+<p>正数;负数;0;文本</p>
+</blockquote>
+<p>  通过<kbd>;</kbd>进行分割，单元格根据数据内容，采用所对应的格式进行显示，如果格式为空，则表示隐藏。举个例子，如果我们想只显示正数，则可以设置为<kbd>G/通用格式;;;</kbd>，因为只有正数有对应的显示格式定义，因此非正数的内容都将隐藏。</p>
+<h3 id="条件格式组合"><a href="#条件格式组合" class="headerlink" title="条件格式组合"></a>条件格式组合</h3><p>  看到这里，心思细腻的你一定想到了，单元格格式能不能组合在一起使用呢？当然是可以的。而且组合后的效果也许会让你眼前一亮呢。比如，我们在统计员工当月获得的奖励时，就可以利用上面讲的几种格式进行组合，先看看效果。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/17/556d6936c5c85908a95ff0b88a83d28a.jpg" alt="效果"></p>
+<p>  根据输入的内容自动设置颜色，自动添加前缀备注。要做到这样的效果，只需要在<strong>单元格格式设置</strong>中输入</p>
+<p><code>[蓝色]("奖""励")¥0.00;[红色]("罚""款") ¥0.00;[黄色]("无""激""励");</code>即可。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/17/07d65356ebe6f9062b812134b2b6e203.jpg" alt="设置"></p>
+<p>  根据上面介绍过关于<kbd>;;;</kbd>的格式说明，我们通过对正数负数以及0设置不同的显示格式，来实现预期的效果。这里也用到了<kbd>[颜色]</kbd>这样的特殊表达格式，其实这是Excel的内置颜色代码，除了例子中的蓝色、红色以及黄色。还有其它的颜色代码，如下所示，有兴趣的小伙伴可以自己试试看。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/16/2a9318a97d5ffb67d6c9437756e1e759.jpg" alt="颜色代码"></p>
+<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>  巧妙的使用Excel小技巧，会让我们日常使用的Excel变得“聪明”一点，做出的表格也会更直观，更好看，当然Excel的小技巧不止于此，工作中也会遇到很多让人困惑的操作，比如如何筛选带合并单元格的工作表、如何增加图形、图标，这些在后面的摸鱼小技巧中再跟大家总结吧。</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：科学摸鱼之Excel小技巧(四) 单元格格式更智能</li>
+        <li>本文作者：Ray</li>
+        <li>创建时间：2022-10-17 13:00:00</li>
+        <li>
+            本文链接：https://www.ray0728.cn/2022/10/17/221016-科学摸鱼之Excel小技巧(四)-单元格格式/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/office/">#office</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/excel/">#excel</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/10/23/221023-%E5%9F%BA%E4%BA%8ELinux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AE%9E%E7%8E%B0%E5%BF%AB%E9%80%9F%E8%A7%86%E9%A2%91%E8%BD%ACGIF/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">基于Linux命令行实现将视频文件快速转GIF文件</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/10/13/221012-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%B8%89)-%E6%88%91%E7%9A%84%E8%A1%A8%E6%A0%BC%EF%BC%8C%E4%BD%A0%E5%88%AB%E5%8A%A8/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">科学摸鱼之Excel小技巧(三) 我的表格，你别动</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'x7EKPJccSUW4oG8rk1IuNtoL-9Nh9j0Va',
+                    appKey: 'srEmquGguCjDuK4uW4294jOr',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '请不要见怪，请不要见外。',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Ray';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Ray</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">蜀ICP备2021011938号</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E5%89%8D%EF%BC%88%E5%90%8E%EF%BC%89%E7%BC%80"><span class="nav-number">1.</span> <span class="nav-text">自动添加前（后）缀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%85%A5%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">自动格式化输入内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%A0%E4%BD%8D%E7%AC%A60"><span class="nav-number">2.1.</span> <span class="nav-text">占位符0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%A0%E4%BD%8D%E7%AC%A6"><span class="nav-number">2.2.</span> <span class="nav-text">占位符#</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E9%9A%90%E8%97%8F%E8%BE%93%E5%85%A5%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">自动隐藏输入内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%A0%BC%E5%BC%8F%E7%BB%84%E5%90%88"><span class="nav-number">4.</span> <span class="nav-text">条件格式组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="nav-number">5.</span> <span class="nav-text">结束语</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

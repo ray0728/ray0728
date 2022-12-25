@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="向着财富与自由前进吧">
+    <meta name="author" content="Ray">
+    
+    <title>
+        
+            让WebSocket支持Oauth2 TOKEN验证的尝试 |
+        
+        Ray的日记本
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://arts.ray0728.cn/images/2021/08/01/logo.png","favicon":"https://arts.ray0728.cn/images/2021/08/01/logo.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/mybg.svg","description":"格物 致知 诚意 正心"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Ray的日记本
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/"
+                            >
+                                CODE
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/">CODE</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">让WebSocket支持Oauth2 TOKEN验证的尝试</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Ray</span>
+                        
+                            <span class="author-label">CTO</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-10 16:00:00</span>
+        <span class="mobile">2022-10-10 16:00</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Docker/">Docker</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/KeyCloak/">KeyCloak</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Nginx/">Nginx</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Websocket/">Websocket</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Spring-Security/">Spring Security</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>​        很早的时候在下用一种比较简陋的方式利用WebSocket实现了在线Selenium执行功能<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2021/06/20/%E6%90%AD%E5%BB%BA%E5%9C%A8%E7%BA%BFSelenium%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83/">《一》<i class="fas fa-external-link-alt"></i></a>、<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2021/06/24/%E6%90%AD%E5%BB%BA%E5%9C%A8%E7%BA%BFSelenium%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%EF%BC%88%E4%BA%8C%EF%BC%89/">《二》<i class="fas fa-external-link-alt"></i></a>。大概效果如下：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2021/06/26/Screenshot_20210622_232534_com.huawei.browser.jpg" alt="codeonline"></p>
+<p>​        其实实现原理挺粗暴的，服务端开启一个WebSocket服务端，一直处于监听状态。浏览器利用js脚本发起连接，并将内容通过WebSocket发送给服务端。只要发送的格式符合服务端的定义，理论上讲，服务端会<strong>无条件执行任何请求</strong>。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/10/59136ae0da0391e7329f8d9d0b918f8e.png" alt="59136ae0da0391e7329f8d9d0b918f8e.png"></p>
+<p>​        虽然过去了这么久，但是一想到服务器上还运行这么危险的服务，我便久久无法入眠（其实并没有）。趁着这次国庆大假，在家又折腾了一下我的在线代码执行服务，最主要的目标就是让websocket能更安全的运行。</p>
+<p>​        怎么才能更安全的运行呢？当然要利用小云上已运行的KeyCloak所提供的OAuth2认证啦。</p>
+<span id="more"></span>
+
+<h3 id="OAuth2-Token"><a href="#OAuth2-Token" class="headerlink" title="OAuth2 Token"></a>OAuth2 Token</h3><h4 id="什么是OAuth2？"><a href="#什么是OAuth2？" class="headerlink" title="什么是OAuth2？"></a>什么是OAuth2？</h4><blockquote>
+<p>OAuth</p>
+<p>允许用户提供一个令牌，而不是用户名和密码来访问他们存放在特定服务提供者的数据。每一个令牌授权一个特定的网站（例如，视频编辑网站)在特定的时段（例如，接下来的2小时内）内访问特定的资源（例如仅仅是某一相册中的视频）。这样，OAuth允许用户授权第三方网站访问他们存储在另外的服务提供者上的信息，而不需要分享他们的访问许可或他们数据的所有内容。</p>
+<p>OAuth是OpenID的一个补充，但是完全不同的服务。</p>
+<p>OAuth 2.0</p>
+<p>是OAuth协议的下一版本，但不向后兼容OAuth 1.0。 OAuth 2.0关注客户端开发者的简易性，同时为Web应用，桌面应用和手机，和起居室设备提供专门的认证流程。2012年10月，OAuth 2.0协议正式发布为RFC 6749</p>
+</blockquote>
+<h4 id="什么是Token？"><a href="#什么是Token？" class="headerlink" title="什么是Token？"></a>什么是Token？</h4><p>​        Token就是OAuth2服务器向用户发放的一个令牌，用户持有这个令牌就可以访问所有允许被访问的资源。令牌与密码的作用是一样的，都可以用于身份的校验，但是在OAuth2协议之下也有些差异。</p>
+<blockquote>
+<ol>
+<li>令牌是短期的，到期会自动失效，用户自己无法修改。密码一般长期有效，用户不修改，就不会发生变化</li>
+<li>令牌可以被数据所有者撤销，会立即失效。以上例而言，屋主可以随时取消快递员的令牌。密码一般不允许被他人撤销。</li>
+<li>令牌有权限范围（scope），比如只能进小区的二号门。对于网络服务来说，只读令牌就比读写令牌更安全。密码一般是完整权限。</li>
+</ol>
+</blockquote>
+<p>​        正是由于令牌的灵活性，保证了其既可以让三方应用获得权限，又随时可控（范围、时间），不用担心像密码那样危及整个系统的安全。</p>
+<h4 id="什么是SSO？"><a href="#什么是SSO？" class="headerlink" title="什么是SSO？"></a>什么是SSO？</h4><blockquote>
+<p>单点登录(SingleSignOn，SSO)，就是通过用户的一次性鉴别登录。当用户在<a class="link" target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8/10881881?fromModule=lemma_inlink">身份认证服务器<i class="fas fa-external-link-alt"></i></a>上登录一次以后，即可获得访问单点登录系统中其他关联系统和应用软件的权限，同时这种实现是不需要管理员对用户的登录状态或其他信息进行修改的，这意味着在多个应用系统中，用户只需一次登录就可以访问所有相互信任的应用系统。这种方式减少了由登录产生的时间消耗，辅助了用户管理，是比较流行的。</p>
+</blockquote>
+<p>​        结合上文，OAuth2提供Token不就是实现SSO最好的方式吗？</p>
+<p>​        基于之前在小云上搭建<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2021/10/27/gatway%E4%BD%BF%E7%94%A8Security%E9%80%82%E9%85%8DKeycloak/">《适配KeyCloak的网管服务》<i class="fas fa-external-link-alt"></i></a>，Beta小云已支持SSO登录。换言之，用浏览器打开我的在线执行地址，通过SSO，可以从KeyCloak获取到一个Token。有了这个Token，就意味着从当前会话中发出的请求都可以带上这个Token，如果Token有效，则运行继续访问，如果无效则拒绝当前的请求。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/11/Video_20221011_113316_122.gif" alt="Video_20221011_113316_122.gif"></p>
+<p>​        那么WebSocket是否也可以呢？</p>
+<h3 id="Spring-Security-如何验证Token？"><a href="#Spring-Security-如何验证Token？" class="headerlink" title="Spring Security 如何验证Token？"></a>Spring Security 如何验证Token？</h3><p>​        在<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2022/03/19/Spring_resource_server/">《Spring极简资源服务器》<i class="fas fa-external-link-alt"></i></a>中介绍了一种利用Spring Security快速构建资源服务器的方法，并且该资源服务器可验证访问请求中的Token是否合法有效。不过这只是解决了如何做（How），并没有解释为什么能这样（Why）。</p>
+<p>​        其实关于Spring Security如何进行OAuth2验证的文章，网上挺多的，我这里就简单说说吧。</p>
+<p>​        Spring 对请求报文的处理大部分都是在Filter中进行的，我们在代码<code>WebSecurityConfigurerAdapter</code>中配置了资源管理策略，大部分的配置差不多都长这个样子：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">protected void configure(HttpSecurity http) throws Exception{
+        http.authorizeRequests(authz -&gt; authz
+                .antMatchers(HttpMethod.GET, "/xxx/").permitAll()
+                .antMatchers(HttpMethod.GET, "/xxx/auth/**").hasRole(role_auth)
+                .antMatchers(HttpMethod.GET, "/xxx/admin/**").hasRole(role_admin)
+                .anyRequest().authenticated())
+                .oauth2ResourceServer().jwt().jwtAuthenticationConverter(converter);
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        其实就是向Spring Filter Chain 添加了OAuth2校验Filter。当然这一步仅仅是让Spring框架知道，接收到请求报文后需要进行对应的处理而已，并不是真正验证的地方。真正进行验证的入口地方在</p>
+<p><kbd>org.springframework.security.authentication.ProviderManager</kbd>的<strong>authenticate</strong>函数。</p>
+<p>​        因为我的KeyCloak提供的是JWT Token，因此Spring框架会进一步将收到的Token交给</p>
+<p><kbd>org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationProvider</kbd>的<strong>authenticate</strong>函数。</p>
+<p>​        之后经过一系列眼花缭乱的封装转换后，Spring框架将收到的Token转换为一个<strong>JWT</strong>对象，<strong>注意</strong>这个JWT对象中的数据均与请求中的数据保持一直，即<strong>并不判断其是否有效</strong>。</p>
+<h4 id="服务端公钥比对"><a href="#服务端公钥比对" class="headerlink" title="服务端公钥比对"></a>服务端公钥比对</h4><p>​        终于来到重点操作部分了，<kbd>com.nimbusds.jose.proc.JWSVerificationKeySelector</kbd>的<strong>selectJWSKeys</strong>函数，这个函数只做一件事儿，从OAuth服务端获取<strong>JWT公钥信息</strong>。对于KeyCloak来说可以访问”/realms/Beta/protocol/openid-connect/certs”来获取。拿到JWT公钥信息之后，则会与之前转换的JWT对象进行对比（主要对比签名的公钥是否一致），如果比对成功则会进入下一步解析Token的操作。那么如果比对不成功呢？就会抛出异常：</p>
+<p><code>throw new BadJOSEException("Signed JWT rejected: Another algorithm expected, or no matching key(s) found");</code></p>
+<p>​        毕竟比对了半天都找不到合适的公钥，这对Spring来说，也是相当懵逼的呢？不是吗？</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/11/3c3b789312d61078cab0f9b32cd53f1d.png" alt="3c3b789312d61078cab0f9b32cd53f1d.png"></p>
+<h4 id="解析-amp-校验Token"><a href="#解析-amp-校验Token" class="headerlink" title="解析&amp;校验Token"></a>解析&amp;校验Token</h4><p>​        经历了上面的的操作后，Spring框架基本可以认为当前收到的Token，是未被篡改过的，如果有篡改，则无法匹配上OAuth2服务端的公钥。既然未篡改，那么接下来就需要确认下Token是否过期、Token是否拥相关的权限资格。</p>
+<p>​        Spring Security框架会用到2个校验器对Token进行校验，分别是：</p>
+<ul>
+<li>org.springframework.security.oauth2.jwt.JwtTimestampValidator</li>
+<li>org.springframework.security.oauth2.jwt.JwtIssuerValidator</li>
+</ul>
+<p>​        首先会用到<kbd>JwtTimestampValidator</kbd>的<strong>validate</strong>h函数对过期时间进行判断。如果Token中的过期时间已在服务器时间之前，那么Spring会返回一个<strong>OAuth2Error</strong>的错误，内容大概是“你的JWT 过期时间是xxxx”。</p>
+<p>​        紧接着会用到<kbd>JwtIssuerValidator</kbd>的<strong>validate</strong>函数对权限进行判断。还记的我在<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2022/03/19/Spring_resource_server/">《Spring极简资源服务器》<i class="fas fa-external-link-alt"></i></a>中我自定义了一段权限解析器的代码吗？</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">JwtAuthenticationConverter converter = new JwtAuthenticationConverter();
+converter.setJwtGrantedAuthoritiesConverter(new Converter&lt;Jwt, Collection&lt;GrantedAuthority&gt;&gt;() {
+    @Override
+    public Collection&lt;GrantedAuthority&gt; convert(Jwt source) {
+        JSONArray roles = (JSONArray) ((JSONObject) (source.getClaims().get("realm_access"))).get("roles");
+        //                JSONArray scopes = (JSONArray) ((JSONObject) (source.getClaims().get("resource_access"))).get("roles");
+        ArrayList&lt;GrantedAuthority&gt; roleArray = new ArrayList&lt;&gt;();
+        for(int i = 0; i &lt; roles.size(); i++){
+            roleArray.add(new Role(roles.get(i)));
+        }
+        return roleArray;
+    }
+});<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        是的，没错！<strong>JwtIssuerValidator</strong>最终会调用到这段代码，以便按照我们预期的方式解析出Token中的权限（角色）信息，再和被请求访问的资源所要求的权限（角色）信息进行对比。</p>
+<p>​        好了，校验完成后，如果存在错误信息，则会抛出<strong>JwtValidationException</strong>异常，剩下的就交给Filter继续处理吧，该报401的报401，该报302的报302。</p>
+<h3 id="WebSocket-能否支持Token验证？"><a href="#WebSocket-能否支持Token验证？" class="headerlink" title="WebSocket 能否支持Token验证？"></a>WebSocket 能否支持Token验证？</h3><p>​        遗憾的是，似乎WebSocket协议本身并不支持OAuth2协议，无法在头部中插入<kbd>Authorization</kbd>字段（可能有办法，只不过我还不知道罢了）。同时Spring的Security Filter也并不会处理<strong>ws/wss协议</strong>过来的数据。</p>
+<p>​        既然无法利用Spring Security自动完成Token的校验，那么唯一可行的办法就是让WebSocket将Token作为信息的一部分传送给服务端，我们就自己去OAuth2 服务端验证吧，大不了模仿Spring框架再做一套呗。</p>
+<h3 id="OAuth2-Server-Endpoint"><a href="#OAuth2-Server-Endpoint" class="headerlink" title="OAuth2 Server Endpoint"></a>OAuth2 Server Endpoint</h3><p>​        如果你用过早期的Spring cloud OAuth2 Server，一定知道它提供了多个Endpoint，比如这些：</p>
+<ul>
+<li>/oauth/authorize：获取授权码的端点</li>
+<li>/oauth/token：获取令牌端点。</li>
+<li>/oauth/confifirm_access：用户确认授权提交端点。</li>
+<li>/oauth/error：授权服务错误信息端点。</li>
+<li>/oauth/check_token：用于资源服务访问的令牌解析端点。</li>
+<li>/oauth/token_key：提供JWT公有密匙端点。</li>
+</ul>
+<p>​        其中有一个端点很有意思，<kbd>check_token</kbd>，资源服务器接收到带Token的访问请求后，会将Token发回这个端点，并根据端点返回的结果判断，当前请求是否具有必要的访问权限。</p>
+<p>​        那么我可否先将WebSocket接收到的Token，送给OAuth2服务器做一次验证，如果验证通过，则表明当前请求是被授权了的呢？</p>
+<p>​        答案当然是可以。不过我的OAuth2服务器是KeyCloak，这个端点需要做些调整。</p>
+<h3 id="KeyCloak-Endpoint"><a href="#KeyCloak-Endpoint" class="headerlink" title="KeyCloak Endpoint"></a>KeyCloak Endpoint</h3><p>​        KeyCloak的端点有很多，通过访问</p>
+<p><kbd>$OAuth2_Server_Address/realms/$OAuth2_Realm/.well-known/openid-configuration</kbd></p>
+<p>可以查看到当前服务对外提供的所有端点（当然也包含很多其它的信息，感兴趣的小伙伴可以自己查查看）：</p>
+<blockquote>
+<p>{<br>    “authorization_endpoint”: “<a class="link" target="_blank" rel="noopener" href="http://localhost:8080/realms/Test/protocol/openid-connect/auth&quot;">http://localhost:8080/realms/Test/protocol/openid-connect/auth"<i class="fas fa-external-link-alt"></i></a>,<br>    “token_endpoint”: “<a class="link" target="_blank" rel="noopener" href="http://localhost:8080/realms/Test/protocol/openid-connect/token&quot;">http://localhost:8080/realms/Test/protocol/openid-connect/token"<i class="fas fa-external-link-alt"></i></a>,<br>    “introspection_endpoint”: “<a class="link" target="_blank" rel="noopener" href="http://localhost:8080/realms/Test/protocol/openid-connect/token/introspect&quot;">http://localhost:8080/realms/Test/protocol/openid-connect/token/introspect"<i class="fas fa-external-link-alt"></i></a>,<br>    “userinfo_endpoint”: “<a class="link" target="_blank" rel="noopener" href="http://localhost:8080/realms/Test/protocol/openid-connect/userinfo&quot;">http://localhost:8080/realms/Test/protocol/openid-connect/userinfo"<i class="fas fa-external-link-alt"></i></a>,<br>    “end_session_endpoint”: “<a class="link" target="_blank" rel="noopener" href="http://localhost:8080/realms/Test/protocol/openid-connect/logout&quot;">http://localhost:8080/realms/Test/protocol/openid-connect/logout"<i class="fas fa-external-link-alt"></i></a>,<br>  ……<br>    “registration_endpoint”: “<a class="link" target="_blank" rel="noopener" href="http://localhost:8080/realms/Test/clients-registrations/openid-connect&quot;">http://localhost:8080/realms/Test/clients-registrations/openid-connect"<i class="fas fa-external-link-alt"></i></a>,<br>  ……<br>    “introspection_endpoint_auth_methods_supported”: [<br>        “private_key_jwt”,<br>        “client_secret_basic”,<br>        “client_secret_post”,<br>        “tls_client_auth”,<br>        “client_secret_jwt”<br>    ],introspection_endpoint</p>
+<p>……</p>
+<p>}</p>
+</blockquote>
+<p>​        这是在本地执行的一个KeyCloak环境上查询的结果，这当中有一个<strong>introspection_endpoint</strong>。该端点的作用可以用来校验Token是否有效。</p>
+<p>​        只需要以POST的方式向该Endpoint提交包含如下信息的表单即可进行Token的验证。</p>
+<ol>
+<li>username      : 用户名</li>
+<li>client_id        : Client ID</li>
+<li>client_secret : Client Credentials Secret Code</li>
+<li>token              : 需要验证的Token</li>
+</ol>
+<p>​        无论Token是否有效，只要前面三项填写正确，端点都将返回200。而验证结果以JSON的格式在Respond Body中体现。</p>
+<p>​        如Token无效（错误或过期）时，返回如下图：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/10/active_false.jpg" alt="active_false.jpg"></p>
+<p>​    如果Token有效，则返回如下图：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/10/active_true.jpg" alt="active_true.jpg"></p>
+<p>​        返回结果中最关键的就是<kbd>active</kbd>字段，因此Token是否有效、合法，完全可通过该字段进行判断。</p>
+<h3 id="Java代码实现"><a href="#Java代码实现" class="headerlink" title="Java代码实现"></a>Java代码实现</h3><p>​        有了上面的判断，那么用代码实现就变成顺理成章的事儿了。代码如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public static Boolean verfiyOAuthToken(String url, String clientid, String clientsecret, String username, String token){
+        Boolean ret = null;
+        OutputStreamWriter out = null;
+        BufferedReader in = null;
+        StringBuilder result = new StringBuilder();
+        try{
+            URL introspectUrl = new URL(url);
+            HttpURLConnection conn =(HttpURLConnection)introspectUrl.openConnection();
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("accept", "*/*");
+            conn.setRequestProperty("connection", "Keep-Alive");
+            conn.setRequestProperty("user-agent",
+            "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            conn.connect();
+            out = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
+            String data = String.format("username=%s&amp;client_id=%s&amp;client_secret=%s&amp;token=%s", username, clientid, clientsecret, token);
+            out.write(data);的
+            out.flush();
+            in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+            String line;
+            while ((line = in.readLine()) != null) {
+                result.append(line);
+            }
+            System.out.println(String.format("verfiyOAuthToken: params(%s),", data, result.toString()));
+            ret = JSONObject.parseObject(result.toString()).getBoolean("active");
+        }catch(IOException e){
+            e.printStackTrace();
+        }finally{
+            try{
+                if(out != null){
+                    out.close();
+                }
+                if(in != null){
+                    in.close();
+                }
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
+        System.out.println("verfiyOAuthToken ret:" + ret);
+        return ret;
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        至此，我们的服务程序就可以去校验WebSocket传送的Token，是否合法有效（这里，我做的比较简单，仅仅判断Token是否处于激活状态）。</p>
+<p>相关代码已更新至<a class="link" target="_blank" rel="noopener" href="https://gitee.com/ray0728/resource">Gitee<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：让WebSocket支持Oauth2 TOKEN验证的尝试</li>
+        <li>本文作者：Ray</li>
+        <li>创建时间：2022-10-10 16:00:00</li>
+        <li>
+            本文链接：https://www.ray0728.cn/2022/10/10/221010-让WebSocket支持Oauth2-TOKEN验证的尝试/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Docker/">#Docker</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/KeyCloak/">#KeyCloak</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Nginx/">#Nginx</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Websocket/">#Websocket</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Spring-Security/">#Spring Security</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/10/11/221011-%E5%BC%80%E5%8F%91%E8%80%85%E6%B5%8B%E8%AF%95%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%847%E4%BB%B6%E4%BA%8B/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">【转】开发者测试必须知道的7件事</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/08/04/220804-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%BA%8C)/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">科学摸鱼之Excel小技巧(二)</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'x7EKPJccSUW4oG8rk1IuNtoL-9Nh9j0Va',
+                    appKey: 'srEmquGguCjDuK4uW4294jOr',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '请不要见怪，请不要见外。',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Ray';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Ray</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">蜀ICP备2021011938号</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#OAuth2-Token"><span class="nav-number">1.</span> <span class="nav-text">OAuth2 Token</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFOAuth2%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">什么是OAuth2？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFToken%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">什么是Token？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFSSO%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">什么是SSO？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Security-%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81Token%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">Spring Security 如何验证Token？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%85%AC%E9%92%A5%E6%AF%94%E5%AF%B9"><span class="nav-number">2.1.</span> <span class="nav-text">服务端公钥比对</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90-amp-%E6%A0%A1%E9%AA%8CToken"><span class="nav-number">2.2.</span> <span class="nav-text">解析&amp;校验Token</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebSocket-%E8%83%BD%E5%90%A6%E6%94%AF%E6%8C%81Token%E9%AA%8C%E8%AF%81%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">WebSocket 能否支持Token验证？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OAuth2-Server-Endpoint"><span class="nav-number">4.</span> <span class="nav-text">OAuth2 Server Endpoint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KeyCloak-Endpoint"><span class="nav-number">5.</span> <span class="nav-text">KeyCloak Endpoint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">6.</span> <span class="nav-text">Java代码实现</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

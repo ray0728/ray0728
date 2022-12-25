@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="向着财富与自由前进吧">
+    <meta name="author" content="Ray">
+    
+    <title>
+        
+            让在线代码编辑器更加丰富 |
+        
+        Ray的日记本
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://arts.ray0728.cn/images/2021/08/01/logo.png","favicon":"https://arts.ray0728.cn/images/2021/08/01/logo.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/mybg.svg","description":"格物 致知 诚意 正心"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Ray的日记本
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/"
+                            >
+                                CODE
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/">CODE</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">让在线代码编辑器更加丰富</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Ray</span>
+                        
+                            <span class="author-label">CTO</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-11-08 18:00:00</span>
+        <span class="mobile">2022-11-08 18:00</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/CodeMirror/">CodeMirror</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Bootstrap/">Bootstrap</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>  在<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2021/06/20/210620-%E6%90%AD%E5%BB%BA%E5%9C%A8%E7%BA%BFSelenium%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83/">《搭建Selenium在线执行环境》<i class="fas fa-external-link-alt"></i></a>中，基于<a class="link" target="_blank" rel="noopener" href="https://codemirror.net/6/">CodeMirror<i class="fas fa-external-link-alt"></i></a>我做了一个界面简单的在线代码编辑器，界面大概就长这个样子：</p>
+<img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2021/06/20/Screenshot_20210620_232604_mark.via.jpg" alt="UI" style="zoom: 33%;">
+
+<p>  输入输出均是利用CodeMirror完成的，只不过设计了不同的显示风格而已。输入框支持语法高亮、行号等特性，而输出框则模拟终端的黑白输出以及简单的行号显示。</p>
+<p>  前后端通过WebSocket进行简单的消息发送，后来在<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2022/10/10/221010-%E8%AE%A9WebSocket%E6%94%AF%E6%8C%81Oauth2-TOKEN%E9%AA%8C%E8%AF%81%E7%9A%84%E5%B0%9D%E8%AF%95/">《让WebSocket支持Oauth2-TOKEN验证的尝试》<i class="fas fa-external-link-alt"></i></a>中，通过改造后端，让前后端的通信不仅变更安全，也能传送更多类型的数据了。那么当前的输出界面就变得有些简陋了，毕竟当前无法显示除了字符串之外的其它内容，前端的改造势在必行。不仅要显示文本内容，还要让它显示更多富媒体的信息。</p>
+<span id="more"></span>
+
+<p>  CodeMirror使用<code>replaceSelection</code>将文本内容指定插入的位置，但是这个接口仅支持插入文本内容，并不支持插入其它数据。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://codemirror.net/docs/ref/#state.EditorState.replaceSelection"><strong>replaceSelection</strong></a>(text: string | Text) → TransactionSpec</p>
+<p>Create a <a class="link" target="_blank" rel="noopener" href="https://codemirror.net/docs/ref/#state.TransactionSpec">transaction spec<i class="fas fa-external-link-alt"></i></a> that replaces every selection range with the given content.</p>
+</blockquote>
+<p>  如果要插入别的内容得想想其它的办法，这里顺道提一下初次使用CodeMirror的API时，不会那么容易理解每个API的作用，甚至不太容易找到需要的API接口，这与近代编程语言易于理解的API写法存在不小的区别。比如，通常使用<code>insertXXX</code>表示插入某种类型、使用<code>append</code>表示在末尾追加，但是在CodeMirror中很难直接找到对应的API。</p>
+<h3 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h3><p>  既然从API中一时半会也没找到可直接使用的API，那么不妨先看看文本内容在CodeMirror中是如何显示的吧。</p>
+<img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/11/08/codemirror-code.png" alt="code">
+
+<p>  如上图，在CodeMirror中显示一行文本，并在HTML代码中查看这行文本是如何显示的，很容易地能看出文本在CodeMirror中就是一个<kbd>div</kbd>块，看来上文中用到的API，最终是创建了这么一个块呀，这就有意思了。</p>
+<p>  如果我能自定义div的内容，比如包装一张图片，岂不是也能在CodeMirror中显示了？那么我们想在CodeMirror中显示富文本信息的诉求就变成<strong>如何在CodeMirror中插入HTML自定义元素了</strong>。</p>
+<p>  幸运的是，CodeMirror提供了一个添加Widget的接口<code>addLineWidget</code>。换句话讲我们可以通过这个接口可以向CodeMirror添加任意一个HTML对象。</p>
+<blockquote>
+<pre class="line-numbers language-none"><code class="language-none">doc.addLineWidget(line: integer|LineHandle, node: Element, ?options: object) → LineWidget<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Adds a line widget, an element shown below a line, spanning the whole of the editor’s width, and moving the lines below it downwards. <code>line</code> should be either an integer or a line handle, and <code>node</code> should be a DOM node, which will be displayed below the given line. <code>options</code>, when given, should be an object that configures the behavior of the widget. The following options are supported (all default to false):</p>
+<ul>
+<li><p><code>coverGutter: boolean</code></p>
+<p>Whether the widget should cover the gutter.</p>
+</li>
+<li><p><code>noHScroll: boolean</code></p>
+<p>Whether the widget should stay fixed in the face of horizontal scrolling.</p>
+</li>
+<li><p><code>above: boolean</code></p>
+<p>Causes the widget to be placed above instead of below the text of the line.</p>
+</li>
+<li><p><code>handleMouseEvents: boolean</code></p>
+<p>Determines whether the editor will capture mouse and drag events occurring in this widget. Default is false—the events will be left alone for the default browser handler, or specific handlers on the widget, to capture.</p>
+</li>
+<li><p><code>insertAt: integer</code></p>
+<p>By default, the widget is added below other widgets for the line. This option can be used to place it at a different position (zero for the top, N to put it after the Nth other widget). Note that this only has effect once, when the widget is created.</p>
+</li>
+<li><p><code>className: string</code></p>
+<p>Add an extra CSS class name to the wrapper element created for the widget.</p>
+</li>
+</ul>
+<p>Note that the widget node will become a descendant of nodes with CodeMirror-specific CSS classes, and those classes might in some cases affect it. This method returns an object that represents the widget placement. It’ll have a <code>line</code> property pointing at the line handle that it is associated with, and the following methods:</p>
+<ul>
+<li><p><code>clear()</code></p>
+<p>Removes the widget.</p>
+</li>
+<li><p><code>changed()</code></p>
+<p>Call this if you made some change to the widget’s DOM node that might affect its height. It’ll force CodeMirror to update the height of the line that contains the widget.</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><p>  既然找到了解决办法，剩下的就好办多了，结合我自己网站的实际情况，将该接口进行了二次封装，这样更方便调用。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">createElement</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> src</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> node<span class="token punctuation">;</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+            node <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"p"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            node<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> src<span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+            node <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"img"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            node<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">"data:image/png;base64, "</span> <span class="token operator">+</span> src<span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">append</span><span class="token punctuation">(</span><span class="token parameter">cm<span class="token punctuation">,</span> type<span class="token punctuation">,</span> msg<span class="token punctuation">,</span> mark</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> lastline <span class="token operator">=</span> cm<span class="token punctuation">.</span><span class="token function">lineCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cm<span class="token punctuation">.</span><span class="token function">setCursor</span><span class="token punctuation">(</span>lastline<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>type<span class="token punctuation">.</span>isElement<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cm<span class="token punctuation">.</span><span class="token function">addLineWidget</span><span class="token punctuation">(</span>lastline<span class="token punctuation">,</span> <span class="token function">createElement</span><span class="token punctuation">(</span>type<span class="token punctuation">.</span>node<span class="token punctuation">,</span> msg<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> above<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// cm.replaceRange(msg, { line: lastline, ch: 0 }, { line: lastline });</span>
+        cm<span class="token punctuation">.</span><span class="token function">replaceSelection</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>mark<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cm<span class="token punctuation">.</span><span class="token function">markText</span><span class="token punctuation">(</span><span class="token punctuation">{</span> line<span class="token operator">:</span> lastline <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> ch<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> line<span class="token operator">:</span> lastline <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> ch<span class="token operator">:</span> msg<span class="token punctuation">.</span>length <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> css<span class="token operator">:</span> <span class="token string">"color: #FF6347"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  函数逻辑相对简单，如果需要添加Widget，则根据传入的Widget类型，自行判断是创建<kbd>p</kbd>还是<kbd>img</kbd>对象（当然这里可以任意扩展其它的类型对象），然后调用<kbd>addLineWidget</kbd>将组件添加进指定行即可。</p>
+<p>  如果是普通的文本，则还是按以前的<kbd>replaceSelection</kbd>进行添加。为了满足对特定文本内容突出显示，这里单独使用了<kbd>markText</kbd>接口，它可以对指定文本设置其css样式。</p>
+<p><strong>注意：</strong>使用每次调用addLineWidget，仅能添加一个网页控件(对象），也就是说所添加的内容是独占一行的。</p>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/11/08/gifski.gif" alt="富媒体"></p>
+<p>  前端将输入的指令通过WebSocket（带OAUTH2 TOKEN）传递给后端，并在后端解析运行。运行结果再通过WebSocket发回前端。虽然后端服务是以Docker运行，但是从安全角度考虑，后端对可执行的Shell命令做了限制（包括且不限于禁用重定向、高危命令、长时执行等）。</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://gitee.com/ray0728/resource/blob/js/src/main/resources/static/js/cm.js">源码已在Gitee上标记TAG<i class="fas fa-external-link-alt"></i></a>。</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：让在线代码编辑器更加丰富</li>
+        <li>本文作者：Ray</li>
+        <li>创建时间：2022-11-08 18:00:00</li>
+        <li>
+            本文链接：https://www.ray0728.cn/2022/11/08/221108-CodeMirror插入图片/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/CodeMirror/">#CodeMirror</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Bootstrap/">#Bootstrap</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/11/22/221108-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E5%85%AB)%E9%80%8F%E8%A7%86%E8%A1%A8%E7%9A%84%E6%8B%86%E5%88%86%E7%BB%84%E5%90%88/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">科学摸鱼之Excel小技巧(八) 利用透视表自定义数据信息组合</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/10/28/221028-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E4%B8%83)-%E6%83%B3%E6%80%8E%E4%B9%88%E6%8E%92%E5%B0%B1%E6%80%8E%E4%B9%88%E6%8E%92/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">科学摸鱼之Excel小技巧(七) 排序就得听我的</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'x7EKPJccSUW4oG8rk1IuNtoL-9Nh9j0Va',
+                    appKey: 'srEmquGguCjDuK4uW4294jOr',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '请不要见怪，请不要见外。',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Ray';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Ray</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">蜀ICP备2021011938号</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3"><span class="nav-number">1.</span> <span class="nav-text">如何解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text">效果</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

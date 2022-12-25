@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="向着财富与自由前进吧">
+    <meta name="author" content="Ray">
+    
+    <title>
+        
+            科学摸鱼之Excel小技巧(七) 排序就得听我的 |
+        
+        Ray的日记本
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://arts.ray0728.cn/images/2021/08/01/logo.png","favicon":"https://arts.ray0728.cn/images/2021/08/01/logo.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/mybg.svg","description":"格物 致知 诚意 正心"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Ray的日记本
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/"
+                            >
+                                CODE
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://beta.ray0728.cn/res/editor/">CODE</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">科学摸鱼之Excel小技巧(七) 排序就得听我的</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://arts.ray0728.cn/images/2021/08/01/logo.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Ray</span>
+                        
+                            <span class="author-label">CTO</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-28 12:00:00</span>
+        <span class="mobile">2022-10-28 12:00</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Office/">Office</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/office/">office</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/excel/">excel</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/07/31/logo.png" alt="logo.png" style="zoom:50%;">
+
+<p>  接<a class="link" target="_blank" rel="noopener" href="https://www.ray0728.cn/2022/10/25/221026-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E5%85%AD)-%E8%B6%85%E7%BA%A7%E7%AD%9B%E9%80%89/">上一期<i class="fas fa-external-link-alt"></i></a>我们分享了用高级筛选更快更好的进行组合筛选小技巧，本期我们继续聊一聊Excel其它看上去很酷炫的操作。</p>
+<p>  本期内容同样是天选打工人熬夜整理出来的，吐血推荐。</p>
+<p>  下面就开始我们今天的<strong>摸鱼小技巧</strong>吧。</p>
+<hr>
+<p>  既然我们分享过筛选的小技巧，自然也不能把<strong>排序</strong>给落下了。因为<strong>排序</strong>同样是日常工作中高频使用的Excel功能之一。</p>
+<p>  通常我们会利用排序实现工作表某一列按照升序或降序的方式重新排列，比如这样：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/27/d7af11c6c9a960235376042945bd2ed5.jpg" alt="排序"></p>
+<p>排序的规则如下：</p>
+<ul>
+<li>数字</li>
+</ul>
+<p>以数字大小作为排序依据</p>
+<ul>
+<li>英文字符</li>
+</ul>
+<p>按照字符在字母表中的先后顺序进行排序</p>
+<ul>
+<li>中文</li>
+</ul>
+<p>按照对应的拼音字母顺序进行排序。 </p>
+<p>  可是如果此时对另外一列做排序，则会发现之前排序的结果被破坏了，也就是说<strong>排序只能对一列生效</strong>。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/27/b4010d39809f5cc5afdcdeed06cad0ae.jpg" alt="对另一列排序"></p>
+<p>  那么有没有什么办法可以同时多列进行排序呢？毕竟我们的日常工作中可不是这样简单对单列进行排序就行的呀。其实Excel中是支持更复制的多列组合排序的，接下来就跟大家分享这个小技巧。</p>
+<span id="more"></span>
+
+<h2 id="使用自定义列表排序"><a href="#使用自定义列表排序" class="headerlink" title="使用自定义列表排序"></a>使用自定义列表排序</h2><p>  Excel支持用户自己定义排序规则，即数据的排序方式。<strong>注意这里就没有正序、倒序的区别了</strong>，只会按照用户自定义的顺序进行显示。</p>
+<p>  那么这个有什么作用呢？它允许对多列进行排序，并且按照先后顺序进行排列。这个描述略有些抽象，我们举个例子看看，大家就清楚了。</p>
+<p>  还是以上面的员工信息表格为例子。假设我们需要以<strong>一级部门</strong>作为第一优先顺序（以<em>产品部、质量部、市场部、销售部</em>为序），筛选出这几个部门在各<strong>Base地</strong>（以<em>成都、深圳、北京</em>为序）的员工信息，并且以员工的<strong>职级从大到小</strong>进行排序。</p>
+<p>  这是一个以多条件为基础的筛选需求，那么用Excel怎么做呢？</p>
+<h3 id="使用多条件排序"><a href="#使用多条件排序" class="headerlink" title="使用多条件排序"></a>使用多条件排序</h3><p>  Excel提供了一个多条件排序的功能，其入口在<strong>数据</strong>菜单栏的<strong>排序</strong>当中。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/27/1eb0bbcb47df929bc65688ee08ab9cf8.jpg" alt="多条件排序入口"></p>
+<blockquote>
+<p>  对数据进行排序是数据分析不可缺少的组成部分。 你可能需要执行以下操作：将名称列表按字母顺序排列；按从高到低的顺序编制产品存货水平列表，或按颜色或图标对行进行排序。 对数据进行排序有助于快速直观地显示数据并更好地理解数据，有助于组织并查找所需数据，有助于最终做出更有效的决策。</p>
+<p>  可以对一列或多列中的数据按文本（从 A 到 Z 或从 Z 到 A）、数字（从小到大或从大到小）以及日期和时间（从最旧到最新或从最新到最旧）进行排序。 还可以按自己创建的自定义序列（如大、中和小）或格式（包括单元格颜色、字体颜色或图标集）进行排序。</p>
+</blockquote>
+<p>  点击之后会弹出一个排序条件组合框。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/27/571fd72edd160cb4c3f85aaf4a1c6fc8.jpg" alt="排序条件"></p>
+<p>  从组合框里面的内容可以看出，可以<strong>添加多个条件</strong>，条件与条件之间有<strong>主从</strong>之分。每一个条件对应一个<strong>关键字（表头）</strong>，并且可以选择不同的排序方式。这里我们选择<strong>自定义序列</strong>。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/27/aac172afaa1ee1fd9bd6bea1a9f69a51.jpg" alt="自定义序列"></p>
+<p>  在<strong>输入序列</strong>里，按需要输入排序结果，然后点击<strong>添加</strong>即可添加自定义的序列。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/27/054ef32cb6ef6507abde3f8febcac479.jpg" alt="条件组合"></p>
+<p>  如上图，按照我们期望的顺序以及逻辑先后顺序，完成自定义排序内容的填写。点击确定，就能见证到奇迹了。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/27/e7e01ff0ea6acbdddb69455fb6eeb0c1.jpg" alt="条件排序结果"></p>
+<p>  数据表按照我们的设想，完美的进行了排序。而要实现这一切，只需要自定义几个序列就好了。是不是一个非常实用的小技巧？</p>
+<h2 id="导入自定义序列"><a href="#导入自定义序列" class="headerlink" title="导入自定义序列"></a>导入自定义序列</h2><p>  心思缜密的你，一定会有个疑问，如果我需要自定义的序列特别长，怎么办？难道也得手工一条一条输入吗？当然不是，Excel同样允许我们从单元格中导入自定义序列。</p>
+<p>  首先在空白的单元格区域编辑好期望的序列方式。比如这样：</p>
+<table>
+<thead>
+<tr>
+<th align="center">一级部门</th>
+<th align="center">Base地</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">产品部</td>
+<td align="center">成都</td>
+</tr>
+<tr>
+<td align="center">质量部</td>
+<td align="center">深圳</td>
+</tr>
+<tr>
+<td align="center">市场部</td>
+<td align="center">北京</td>
+</tr>
+<tr>
+<td align="center">销售部</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>  但是在刚刚的自定义序列里似乎没看到有导入表格的按钮呢？那么又该从哪里导入呢？Excel将这个功能隐藏得比较深，需要点击Excel的开始菜单</p>
+<p>  进入<strong>Excel选项</strong>对话框。点击<strong>高级</strong>选项，并找到<strong>常规</strong>字段。这里有一个<strong>编辑自定义列表</strong>的按钮。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/27/49a62809a65cd5f4e71074f3a59e659f.jpg" alt="Excel选项"></p>
+<p>  这个时候会再次弹出<strong>自定义序列</strong>对话框，但是这次会比之前多了一个<strong>从单元格中导入序列</strong>的功能。如下图：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/27/9e0c66dbe32eb7db759e4ad3dc164b7c.jpg" alt="导入"></p>
+<p>  选中单元格，点击导入即可完成批量导入自定义序列的操作。导入之后，能在左边<strong>自定义序列</strong>中找到刚刚导入的序列。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://arts.ray0728.cn/images/2022/10/27/2208a4a2c251bdc26ed02ee92df55742.jpg" alt="导入结果"></p>
+<p>  这样我们在使用的时候就可以直接从中选取已导入的序列了，而不用再手动输入。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>  <strong>排序</strong>和<strong>筛选</strong>是Excel在日常工作中最常用且最简单的功能，配合上各种各样的小技巧，让我们能用最简单的操作，带来完全不一样的体验。</p>
+<p>  当然Excel的小技巧不止于此，有特别想了解的，或困惑的都可以给我留言。在后面的摸鱼小技巧中再跟大家分享总结吧。</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：科学摸鱼之Excel小技巧(七) 排序就得听我的</li>
+        <li>本文作者：Ray</li>
+        <li>创建时间：2022-10-28 12:00:00</li>
+        <li>
+            本文链接：https://www.ray0728.cn/2022/10/28/221028-科学摸鱼之Excel小技巧(七)-想怎么排就怎么排/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/office/">#office</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/excel/">#excel</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/11/08/221108-CodeMirror%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">让在线代码编辑器更加丰富</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/10/25/221026-%E7%A7%91%E5%AD%A6%E6%91%B8%E9%B1%BC%E4%B9%8BExcel%E5%B0%8F%E6%8A%80%E5%B7%A7(%E5%85%AD)-%E8%B6%85%E7%BA%A7%E7%AD%9B%E9%80%89/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">科学摸鱼之Excel小技巧(六) 高级筛选</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'x7EKPJccSUW4oG8rk1IuNtoL-9Nh9j0Va',
+                    appKey: 'srEmquGguCjDuK4uW4294jOr',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '请不要见怪，请不要见外。',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Ray';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Ray</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">蜀ICP备2021011938号</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">使用自定义列表排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">1.1.</span> <span class="nav-text">使用多条件排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BA%8F%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text">导入自定义序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">结束语</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
